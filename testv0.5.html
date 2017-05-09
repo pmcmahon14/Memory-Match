@@ -1,0 +1,161 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script src="http://learning-fuze.github.io/memory_match/v0.1/script.js"></script>
+    <script src="script.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <title>The Speedtastic NHRA Memory Game!</title>
+    <script>
+        first_card_clicked = null;
+        second_card_clicked = null;
+        total_number_matches = 2;
+        match_counter = 0;
+
+        var games_played = 0;
+        var attempts = 0;
+        var accuracy = 0;
+
+
+
+        $(document).ready(function() {
+
+
+            /*This turns card over*/
+
+            $(".back").click(function() {
+                console.log("hello")
+                $(this).toggleClass("john_force");
+
+                /*this checks for match*/
+
+                if (first_card_clicked === null) {
+                    first_card_clicked = this;
+                    console.log("first_card_clicked");
+                }
+                /*else {
+                second card clicked = this;
+                var first_img = $(first_card_clicked).parent().children('front').find ('img').attr("src");
+                same
+                console.log("first_img: ", first_img);
+                same*/
+                /*if (first_img == second_img) {
+                match_counter++;
+                 first_card_clicked = null;
+                 second_card_clicked = null;
+                 console.log("1st = 2nd and match counter is: ", match_counter);*/
+
+
+                    if (first_card_clicked, second_card_clicked) {
+                        first_card_clicked == second_card_clicked;
+                        match_counter = match_counter + 1;
+                        first_card_clicked = null;
+                        second_card_clicked = null;
+                        console.log("match");
+
+                        if (match_counter === total_number_matches) {
+                            console.log("You won!");
+                        } else {
+                            console.log("Good job!");
+                            first_card_clicked = null;
+                            second_card_clicked = null;
+                        }
+
+                    } else {
+                        function timer() {
+                            setTimeout(timer(), 2000);
+                            first_card_clicked = null;
+                            second_card_clicked = null;
+                            console.log("restart");
+                        }
+
+                    };
+                });
+        });
+        /*wait 2 seconds*/
+        /*
+         /*Show card back on both elements that are flipped over
+         reset both card_clicked
+         variables to null
+         click handler functionality is complete, return
+
+         second_card_clicked = .toggleClass("");*/
+
+        /*Not the end of the game here!*/
+
+
+
+
+
+
+
+    </script>
+</head>
+<body>
+<div class="header">
+    <div class="logo" style="float:left;">
+        <img src="images/NHRA_logo.jpg" alt="logo">
+    </div>
+    <div class="about" style="float:right;">
+        <p>About</p>
+    </div>
+    <div class="settings" style="float:right;">
+        <p>Settings</p>
+    </div>
+    <div class="nametag">
+        <h1>The Speedtastic NHRA Memory Game!</h1>
+    </div>
+</div>
+<!--This is the statistics container-->
+<div class="statistics">
+    <div>
+        <h2>Stats</h2>
+    </div>
+    <div class="games-played">
+        <h4 class="label">Games Played</h4>
+        <p class="value"></p>
+    </div>
+    <div class="attempts">
+        <h4 class="label">Attempts</h4>
+        <p class="value"></p>
+    </div>
+    <div>
+        <h4 class="label">Accuracy</h4>
+        <p class="value"></p>
+    </div>
+    <div>
+        <button class="reset">Reset Game</button>
+    </div>
+</div>
+<!--Game area-->
+<div class="game-area">
+    <div class="card">
+        <div class="front"><img src="images/john_force.jpg" alt="John Force">
+        </div>
+        <div class="back"><img src="images/logo_flag.jpg">
+        </div>
+    </div>
+    <div class="card">
+        <div class="front"><img src="images/erica_enders.jpg" alt="Erica Enders">
+        </div>
+        <div class="back"><img src="images/logo_flag.jpg" alt="card back">
+        </div>
+    </div>
+    <div class="card">
+        <div class="front"><img src="images/erica_enders.jpg" alt="Erica Enders">
+        </div>
+        <div class="back"><img src="images/logo_flag.jpg" alt="card back">
+        </div>
+    </div>
+    <div class="card">
+        <div class="front"><img src="images/john_force.jpg" alt="John Force">
+        </div>
+        <div class="back"><img src="images/logo_flag.jpg" alt="card back">
+        </div>
+
+</div>
+
+</body>
+</html>
