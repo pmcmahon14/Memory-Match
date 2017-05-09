@@ -1,0 +1,82 @@
+
+body {
+/*need opacity background image here*/
+}
+.header {
+    background-color: lightblue;
+    height: 5%;
+}
+.logo {
+    width:10%;
+}
+.logo img {
+    width: 75px;
+    height: 48px;
+}
+.nametag {
+    width: 60%;
+    display: table-cell;
+    padding-left: 20%;
+}
+.settings {
+    width: 15%;
+    vertical-align: middle;
+}
+.about {
+    width: 15%;
+    display: table-cell;
+}
+.statistics {
+    background-color:red;
+    width: 10%;
+    float: left;
+}
+h1 {
+    text-align: center;
+    vertical-align: middle;
+    /*study fonts*/
+}
+h2, h4 {
+    padding: 32% 0;
+}
+ul {
+    list-style-type: none;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+.nav li {
+    display:table-cell;
+}
+.game-area {
+    border: 2px solid black;
+    padding: 2%;
+    text-align: center;
+}
+
+.card {
+    display: inline-block;
+    width: 120px;
+    height: 160px;
+    position: relative;
+    margin: 0 2%;
+    overflow: hidden;
+}
+
+img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    border-radius: 20px;
+}
+
+/*card faces*/
+
+
+.back {
+
+}
+
+
