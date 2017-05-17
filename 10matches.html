@@ -3,288 +3,147 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Bootstrap Experiment 10 Matches</title>
+    <title>Alternate Layout</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script src="script.js"></script>
-    <link rel="stylesheet" href="style.css">
-    <!--<script>
-        $(document).ready(function() {
-            $('.card').click(function () {
-                $('.back').hide();
-            });
-        });
-    </script>-->
-    <!--<style>
-        body .img-responsive {
-            opacity: .7;
-        }
-        @media (min-width: 600px) {
-            div {
-                height: 16vh;
-                margin: 10px 0;
-            }
-            img {
-                max-width: 100%;
-                height: auto;
-            }
-            .card {
-                display: inline-block;
-                /*border: solid 1px black;*/
-                padding-left: 0px;
-                /*background-color: white;*/
-            }
-            /*@media only screen and (max-width: 600px){
-                .container {
-                    display: none;
-                }
-            }
-            @media only screen and (min-width: 600px){
-                .container {
-                    margin: 0;
-                    height: 80vh;
-                    width: 100vw;
-                }
-            }*/
-            .background {
-                opacity: .5;
-                max-width: 100%;
-                z-index: -1;
-                position: absolute;
-            }
-            #stats{
-                width:20%;
-                height:100%;
-                float:left;
-            }
-            .heading {
-                font-weight: bolder;
-            }
-            .cards {
-                display: inline-block;
-                border: solid 1px black;
-                padding-left: 0px;
-                background-color: white;
-            }
-            img {
-                position: absolute;
-                height: auto;
-                max-width: 100%;
-                background-color: white;
-            }
-            .scoretower {
-                /*padding-top: 11vh;*/
-                text-align: center;
-                font-size: 20px;
-            }
-            .back {
-                margin-top: -120px;
+    <script src="altscript.js"></script>
+    <style>
+        @media (max-width: 600px) {
+            .container-fluid {
+                display: none;
             }
         }
-    </style>-->
+        .logo {
+            height: 15vh;
+            background-color: #999999;
+        }
+        .stats.matches, .stats.accuracy {
+            height: 15vh;
+            background-color: #cccccc;
+        }
+        .stats.attempts, .stats.wins {
+            height: 15vh;
+            background-color: #999999;
+        }
+        .reset {
+            height: 15vh;
+            background-color: #cccccc;
+        }
+        .card.light {
+            height: 26vh;
+            background-color: #dddddd;
+        }
+        .card.dark {
+            height: 26vh;
+            background-color: #55ffff;
+        }
+        .front {
+            max-width: 100%;
+        }
+        .timer {
+            height: 7vh;
+            background-color: yellow;
+        }
+    </style>
 </head>
 <body>
-    <div class="container-fluid">
-        <img src="Images/background/Jimmie_2048x1309.jpg" class="background" class="img-responsive">
-        <div class="titlebar col-xs-12">
-            <p>NASCAR</p>
-            <p>Timer</p>
-            <p id="timeleft">0</p>
+<div class="container-fluid">
+    <div class="logo col-xs-2">
+        NASCAR
+    </div>
+    <div class="stats matches col-xs-2">
+        Matches
+    </div>
+    <div class="stats attempts col-xs-2">
+        Attempts
+    </div>
+    <div class="stats accuracy col-xs-2">
+        Accuracy
+    </div>
+    <div class="stats wins col-xs-2">
+        Wins
+    </div>
+    <div class="reset col-xs-2">
+        Reset
+    </div>
+    <div class="timer col-xs-12">
+        Timer
+    </div>
+
+
+    <!--row 1-->
+
+    <div class="card light col-xs-2">
+        <div class="front">
+            <img src="Images/drivers/chase_175.png" class="img-responsive">
         </div>
-        <div class="row">
-            <div class="col-xs-2 scoretower">
-                <p class="heading">Matches</p>
-                <p class=counter" id="matches">0</p>
-            </div>
-            <div class="col-xs-2 card">
-                <div class="front">
-                    <img src="Images/drivers/chase_175.png">
-                </div>
-                <div class="back">
-                    <img src="Images/drivers/logo_175.png">
-                </div>
-            </div>
-            <div class="col-xs-2 card">
-                <div class="front">
-                    <img src="Images/drivers/dale_jr_175.png">
-                </div>
-                <div class="back">
-                    <img src="Images/drivers/logo_175.png">
-                </div>
-            </div>
-            <div class="col-xs-2 card">
-                <div class="front">
-                    <img src="Images/drivers/Danica_Patrick_175.png">
-                </div>
-                <div class="back">
-                    <img src="Images/drivers/logo_175.png">
-                </div>
-            </div>
-            <div class="col-xs-2 card">
-                <div class="front">
-                    <img src="Images/drivers/aj_175.png">
-                </div>
-                <div class="back">
-                    <img src="Images/drivers/logo_175.png">
-                </div>
-            </div>
-            <div class="col-xs-2 card">
-                <div class="front">
-                    <img src="Images/drivers/chase_175.png">
-                </div>
-                <div class="back">
-                    <img src="Images/drivers/logo_175.png">
-                </div>
-            </div>
-        </div>
-
-<!--second row-->
-
-        <div class="row">
-            <div class="col-xs-2 scoretower">
-            <p class="heading">Attempts</p>
-                <p class="counter" id="attempts">0</p>
-            </div>
-            <div class="col-xs-2 card">
-                <div class="front">
-                    <img src="Images/drivers/jimmie_johnson_175.png">
-                </div>
-                <div class="back">
-                    <img src="Images/drivers/logo_175.png">
-                </div>
-            </div>
-            <div class="col-xs-2 card">
-                <div class="front">
-                    <img src="Images/drivers/Danica_Patrick_175.png">
-                </div>
-                <div class="back">
-                    <img src="Images/drivers/logo_175.png">
-                </div>
-            </div>
-            <div class="col-xs-2 card">
-                <div class="front">
-                    <img src="Images/drivers/brad_keselowski_175.png">
-                </div>
-                <div class="back">
-                    <img src="Images/drivers/logo_175.png">
-                </div>
-            </div>
-            <div class="col-xs-2 card">
-                <div class="front">
-                    <img src="Images/drivers/aj_175.png">
-                </div>
-                <div class="back">
-                    <img src="Images/drivers/logo_175.png">
-                </div>
-            </div>
-            <div class="col-xs-2 card">
-                <div class="front">
-                    <img src="Images/drivers/Clint_Bowyer_175.png">
-                </div>
-                <div class="back">
-                    <img src="Images/drivers/logo_175.png">
-                </div>
-            </div>
-        </div>
-
-<!--third row-->
-
-        <div class="row">
-            <div class="col-xs-2 scoretower" style="background-color: white">
-                <p class="heading">Accuracy</p>
-                <p class="counter" id="accuracy">0</p>
-            </div>
-            <div class="col-xs-2 card">
-                <div class="front">
-                    <img src="Images/drivers/Kyle_Busch_175.png">
-                </div>
-                <div class="back">
-                    <img src="Images/drivers/logo_175.png">
-                </div>
-            </div>
-            <div class="col-xs-2 card">
-                <div class="front">
-                    <img src="Images/drivers/Clint_Bowyer_175.png">
-                </div>
-                <div class="back">
-                    <img src="Images/drivers/logo_175.png">
-                </div>
-            </div>
-            <div class="col-xs-2 card">
-                <div class="front">
-                    <img src="Images/drivers/Kevin_Harvick_175.png">
-                </div>
-                <div class="back">
-                    <img src="Images/drivers/logo_175.png">
-                </div>
-            </div>
-            <div class="col-xs-2 card">
-                <div class="front">
-                    <img src="Images/drivers/dale_jr_175.png">
-                </div>
-                <div class="back">
-                    <img src="Images/drivers/logo_175.png">
-                </div>
-            </div>
-            <div class="col-xs-2 card">
-                <div class="front">
-                    <img src="Images/drivers/Kyle_Busch_175.png">
-                </div>
-                <div class="back">
-                    <img src="Images/drivers/logo_175.png">
-                </div>
-            </div>
-        </div>
-
-
-
-        <div class="row">
-            <div class="col-xs-2 scoretower" style="background-color: white">
-                <p class="heading">Wins</p>
-                <p class="counter" id="wins">0</p>
-            </div>
-            <div class="col-xs-2 card">
-                <div class="front">
-                    <img src="Images/drivers/brad_keselowski_175.png">
-                </div>
-                <div class="back">
-                    <img src="Images/drivers/logo_175.png">
-                </div>
-            </div>
-            <div class="col-xs-2 card">
-                <div class="front">
-                    <img src="Images/drivers/joey_logano_175.png">
-                </div>
-                <div class="back">
-                    <img src="Images/drivers/logo_175.png">
-                </div>
-            </div>
-            <div class="col-xs-2 card">
-                <div class="front">
-                    <img src="Images/drivers/Kevin_Harvick_175.png">
-                </div>
-                <div class="back">
-                    <img src="Images/drivers/logo_175.png">
-                </div>
-            </div>
-            <div class="col-xs-2 card">
-                <div class="front">
-                    <img src="Images/drivers/joey_logano_175.png">
-                </div>
-                <div class="back">
-                    <img src="Images/drivers/logo_175.png">
-                </div>
-            </div>
-            <div class="col-xs-2 card">
-                <div class="front">
-                    <img src="Images/drivers/jimmie_johnson_175.png">
-                </div>
-                <div class="back">
-                    <img src="Images/drivers/logo_175.png">
-                </div>
-            </div>
+        <div class="back">
+            <img src="Images/drivers/logo_175.png" class="img-responsive">
         </div>
     </div>
+    <div class="card dark col-xs-2">
+        <div class="front">
+            <img src="Images/drivers/dale_jr_175.png" class="img-responsive">
+        </div>
+        <div class="back">
+            <img src="Images/drivers/logo_175.png" class="img-responsive">
+        </div>    </div>
+    <div class="card light col-xs-2">
+        card3
+    </div>
+    <div class="card dark col-xs-2">
+        card4
+    </div>
+    <div class="card light col-xs-2">
+        card5
+    </div>
+    <div class="card dark col-xs-2">
+        card6
+    </div>
+
+    <!--row 2-->
+
+    <div class="card dark col-xs-2">
+        card7
+    </div>
+    <div class="card light col-xs-2">
+        card8
+    </div>
+    <div class="card dark col-xs-2">
+        card9
+    </div>
+    <div class="card light col-xs-2">
+        card10
+    </div>
+    <div class="card dark col-xs-2">
+        card11
+    </div>
+    <div class="card light col-xs-2">
+        card12
+    </div>
+
+    <!--row 3-->
+
+    <div class="card light col-xs-2">
+        card13
+    </div>
+    <div class="card dark col-xs-2">
+        card14
+    </div>
+    <div class="card light col-xs-2">
+        card15
+    </div>
+    <div class="card dark col-xs-2">
+        card16
+    </div>
+    <div class="card light col-xs-2">
+        card17
+    </div>
+    <div class="card dark col-xs-2">
+        card18
+    </div>
+</div>
+
 </body>
 </html>
