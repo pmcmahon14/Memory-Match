@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script src="altscript.js"></script>
+    <script src="script.js"></script>
     <style>
         @media (max-width: 600px) {
             .container-fluid {
@@ -61,19 +61,19 @@
     </div>
     <div class="stats matches col-xs-2">
         <p>Matches</p>
-        <p>0</p>
+        <p id="matches">0</p>
     </div>
     <div class="stats attempts col-xs-2">
         <p>Attempts</p>
-        <p>0</p>
+        <p id="attempts">0</p>
     </div>
     <div class="stats accuracy col-xs-2">
         <p>Accuracy</p>
-        <p>0</p>
+        <p id="accuracy">0</p>
     </div>
     <div class="stats wins col-xs-2">
         <p>Wins</p>
-        <p>0</p>
+        <p id="wins">0</p>
     </div>
     <div class="reset col-xs-2">
         <button type="button" class="btn btn-md btn-danger" onclick="reset()">Reset</button>
@@ -86,50 +86,50 @@
 
     <div class="card light col-xs-2">
         <div class="front">
-            <img src="Images/drivers/chase_175.png" class="img-responsive">
+            <img src="Images/drivers/chase_175.png" class="img-responsive img-thumbnail">
         </div>
         <div class="back">
-            <img src="Images/drivers/logo_175.png" class="img-responsive">
+            <img src="Images/drivers/logo_175.png" class="img-responsive img-thumbnail">
         </div>
     </div>
     <div class="card dark col-xs-2">
         <div class="front">
-            <img src="Images/drivers/dale_jr_175.png" class="img-responsive">
+            <img src="Images/drivers/dale_jr_175.png" class="img-responsive img-thumbnail">
         </div>
         <div class="back">
-            <img src="Images/drivers/logo_175.png" class="img-responsive">
+            <img src="Images/drivers/logo_175.png" class="img-responsive img-thumbnail">
         </div>
     </div>
     <div class="card light col-xs-2">
         <div class="front">
-            <img src="Images/drivers/chase_175.png" class="img-responsive">
+            <img src="Images/drivers/chase_175.png" class="img-responsive img-thumbnail">
         </div>
         <div class="back">
-            <img src="Images/drivers/logo_175.png" class="img-responsive">
+            <img src="Images/drivers/logo_175.png" class="img-responsive img-thumbnail">
         </div>
     </div>
     <div class="card dark col-xs-2">
         <div class="front">
-            <img src="Images/drivers/dale_jr_175.png" class="img-responsive">
+            <img src="Images/drivers/dale_jr_175.png" class="img-responsive img-thumbnail">
         </div>
         <div class="back">
-            <img src="Images/drivers/logo_175.png" class="img-responsive">
+            <img src="Images/drivers/logo_175.png" class="img-responsive img-thumbnail">
         </div>
     </div>
     <div class="card light col-xs-2">
         <div class="front">
-            <img src="Images/drivers/Danica_Patrick_175.png" class="img-responsive">
+            <img src="Images/drivers/Danica_Patrick_175.png" class="img-responsive img-thumbnail">
         </div>
         <div class="back">
-            <img src="Images/drivers/logo_175.png" class="img-responsive">
+            <img src="Images/drivers/logo_175.png" class="img-responsive img-thumbnail">
         </div>
     </div>
     <div class="card dark col-xs-2">
         <div class="front">
-            <img src="Images/drivers/Danica_Patrick_175.png" class="img-responsive">
+            <img src="Images/drivers/Danica_Patrick_175.png" class="img-responsive img-thumbnail">
         </div>
         <div class="back">
-            <img src="Images/drivers/logo_175.png" class="img-responsive">
+            <img src="Images/drivers/logo_175.png" class="img-responsive img-thumbnail">
         </div>
     </div>
 
@@ -137,50 +137,50 @@
 
     <div class="card dark col-xs-2">
         <div class="front">
-            <img src="Images/drivers/Clint_Bowyer_175.png" class="img-responsive">
+            <img src="Images/drivers/Clint_Bowyer_175.png" class="img-responsive img-thumbnail">
         </div>
         <div class="back">
-            <img src="Images/drivers/logo_175.png" class="img-responsive">
+            <img src="Images/drivers/logo_175.png" class="img-responsive img-thumbnail">
         </div>
     </div>
     <div class="card light col-xs-2">
         <div class="front">
-            <img src="Images/drivers/Clint_Bowyer_175.png" class="img-responsive">
+            <img src="Images/drivers/Clint_Bowyer_175.png" class="img-responsive img-thumbnail">
         </div>
         <div class="back">
-            <img src="Images/drivers/logo_175.png" class="img-responsive">
+            <img src="Images/drivers/logo_175.png" class="img-responsive img-thumbnail">
         </div>
     </div>
     <div class="card dark col-xs-2">
         <div class="front">
-            <img src="Images/drivers/jimmie_johnson_175.png" class="img-responsive">
+            <img src="Images/drivers/jimmie_johnson_175.png" class="img-responsive img-thumbnail">
         </div>
         <div class="back">
-            <img src="Images/drivers/logo_175.png" class="img-responsive">
+            <img src="Images/drivers/logo_175.png" class="img-responsive img-thumbnail">
         </div>
     </div>
     <div class="card light col-xs-2">
         <div class="front">
-            <img src="Images/drivers/jimmie_johnson_175.png" class="img-responsive">
+            <img src="Images/drivers/jimmie_johnson_175.png" class="img-responsive img-thumbnail">
         </div>
         <div class="back">
-            <img src="Images/drivers/logo_175.png" class="img-responsive">
+            <img src="Images/drivers/logo_175.png" class="img-responsive img-thumbnail">
         </div>
     </div>
     <div class="card dark col-xs-2">
         <div class="front">
-            <img src="Images/drivers/Kyle_Busch_175.png" class="img-responsive">
+            <img src="Images/drivers/Kyle_Busch_175.png" class="img-responsive img-thumbnail">
         </div>
         <div class="back">
-            <img src="Images/drivers/logo_175.png" class="img-responsive">
+            <img src="Images/drivers/logo_175.png" class="img-responsive img-thumbnail">
         </div>
     </div>
     <div class="card light col-xs-2">
         <div class="front">
-            <img src="Images/drivers/Kyle_Busch_175.png" class="img-responsive">
+            <img src="Images/drivers/Kyle_Busch_175.png" class="img-responsive img-thumbnail">
         </div>
         <div class="back">
-            <img src="Images/drivers/logo_175.png" class="img-responsive">
+            <img src="Images/drivers/logo_175.png" class="img-responsive img-thumbnail">
         </div>
     </div>
 
@@ -188,50 +188,50 @@
 
     <div class="card light col-xs-2">
         <div class="front">
-            <img src="Images/drivers/kyle_larson_175.png" class="img-responsive">
+            <img src="Images/drivers/kyle_larson_175.png" class="img-responsive img-thumbnail">
         </div>
         <div class="back">
-            <img src="Images/drivers/logo_175.png" class="img-responsive">
+            <img src="Images/drivers/logo_175.png" class="img-responsive img-thumbnail">
         </div>
     </div>
     <div class="card dark col-xs-2">
         <div class="front">
-            <img src="Images/drivers/kyle_larson_175.png" class="img-responsive">
+            <img src="Images/drivers/kyle_larson_175.png" class="img-responsive img-thumbnail">
         </div>
         <div class="back">
-            <img src="Images/drivers/logo_175.png" class="img-responsive">
+            <img src="Images/drivers/logo_175.png" class="img-responsive img-thumbnail">
         </div>
     </div>
     <div class="card light col-xs-2">
         <div class="front">
-            <img src="Images/drivers/brad_keselowski_175.png" class="img-responsive">
+            <img src="Images/drivers/brad_keselowski_175.png" class="img-responsive img-thumbnail">
         </div>
         <div class="back">
-            <img src="Images/drivers/logo_175.png" class="img-responsive">
+            <img src="Images/drivers/logo_175.png" class="img-responsive img-thumbnail">
         </div>
     </div>
     <div class="card dark col-xs-2">
         <div class="front">
-            <img src="Images/drivers/brad_keselowski_175.png" class="img-responsive">
+            <img src="Images/drivers/brad_keselowski_175.png" class="img-responsive img-thumbnail">
         </div>
         <div class="back">
-            <img src="Images/drivers/logo_175.png" class="img-responsive">
+            <img src="Images/drivers/logo_175.png" class="img-responsive img-thumbnail">
         </div>
     </div>
     <div class="card light col-xs-2">
         <div class="front">
-            <img src="Images/drivers/Kevin_Harvick_175.png" class="img-responsive">
+            <img src="Images/drivers/Kevin_Harvick_175.png" class="img-responsive img-thumbnail">
         </div>
         <div class="back">
-            <img src="Images/drivers/logo_175.png" class="img-responsive">
+            <img src="Images/drivers/logo_175.png" class="img-responsive img-thumbnail">
         </div>
     </div>
     <div class="card dark col-xs-2">
         <div class="front">
-            <img src="Images/drivers/Kevin_Harvick_175.png" class="img-responsive">
+            <img src="Images/drivers/Kevin_Harvick_175.png" class="img-responsive img-thumbnail">
         </div>
         <div class="back">
-            <img src="Images/drivers/logo_175.png" class="img-responsive">
+            <img src="Images/drivers/logo_175.png" class="img-responsive img-thumbnail">
         </div>
     </div>
 </div>
