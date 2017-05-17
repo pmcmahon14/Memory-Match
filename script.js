@@ -4,7 +4,7 @@
 var firstCard = null;
 var secondCard = null;
 var matchCount = 0;
-var totalMatch = 10;
+var totalMatch = 9;
 var winCount = 0;
 var accuracy = 0;
 var attempts = 0;
@@ -22,6 +22,7 @@ $(document).ready(function(){
 function pickCard(){
     if($(this).find('.back').is(':visible') === true){
         $(this).find('.back').hide();
+        $(this).find('.front').show();
         console.log('back hidden');
         if(firstCard === null){
             firstCard = this;
