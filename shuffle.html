@@ -3,25 +3,28 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
-    <title>JS Bin</title>
+    <title>Shuffle Test</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
 <body>
 <button onclick="pickDriver()">Hit me!</button>
 <script>
-    /*var drivers = ['jeff', 'kevin', 'kurt', 'kyle', 'jimmie', 'dale', 'danica', 'clint', 'chase'];*/
-    var drivers = [0,1,2,3,4,5,6,7,8,9];
+    var drivers = ['jeff', 'kevin', 'kurt', 'kyle', 'jimmie', 'dale', 'danica', 'clint', 'chase'];
+    //var drivers = [0,1,2,3,4,5,6,7,8,9];
     var cards = [];
+    var size = 4;
     var pick;
     function pickDriver() {
-        for (i=0; i<5; i++) {
-            console.log(drivers.length);
-            pick = Math.floor(Math.random() * drivers.length-1);
-            cards.push(drivers[pick]);
-            cards.push(drivers[pick]);
-            drivers.splice(drivers[pick], 1);
-            console.log(drivers);
-            console.log(cards);
+        for (i=0; i<size; i++) {
+            if (cards.length < size*2) {
+                console.log(drivers.length);
+                pick = Math.floor(Math.random() * (drivers.length-1));
+                cards.push(drivers[pick]);
+                cards.push(drivers[pick]);
+                drivers.splice(pick, 1);
+                console.log(drivers);
+                console.log(cards);
+            }
         }
         /*console.log('length of array drivers is ' + drivers.length);
         pick = Math.round(Math.random()*(drivers.length-1));
