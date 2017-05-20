@@ -59,20 +59,76 @@
     </style>
 
     <script>
-        var one = Images/drivers/aj.png;
-        var drivers = [one, two, three, four, five];
+        var card_array = [
+            {driver: 'Images/drivers/aj.png',
+             car: 'AJ_47.jpg'},
+            {driver: 'Images/drivers/aric.png',
+             car: 'aric_43.jpg'},
+            {driver: 'Images/drivers/austin.png',
+             car: 'Austin_3.jpg'},
+            {driver: 'Images/drivers/brad.png',
+             car: 'brad_2.jpg'},
+            {driver: 'Images/drivers/chase.png',
+             car: 'chase_24.jpg'},
+            {driver: 'Images/drivers/chris.png',
+             car: 'chris_37.jpg'},
+            {driver: 'Images/drivers/clint.png',
+             car: 'clint_14.jpg'},
+            {driver: 'Images/drivers/cole.png',
+             car: 'cole_72.jpg'},
+            {driver: 'Images/drivers/dale.png',
+             car: 'dale_88.jpg'},
+            {driver: 'Images/drivers/danica.png',
+             car: 'danica_10.jpg'},
+            {driver: 'Images/drivers/daniel.png',
+             car: 'daniel_19.jpg'},
+            {driver: 'Images/drivers/david.png',
+             car: 'david_38.jpg'},
+            {driver: 'Images/drivers/denny.png',
+             car: 'denny_11.jpg'},
+            {driver: 'Images/drivers/erik.png',
+             car: 'erik_77.jpg'},
+            {driver: 'Images/drivers/jamie.png',
+             car: 'jamie_1.jpg'},
+            {driver: 'Images/drivers/jimmie.png',
+             car: 'jimmie_48.jpg'},
+            {driver: 'Images/drivers/kylebusch.png',
+             car: 'kyle_18.jpg'},
+            {driver: 'Images/drivers/kylelarson.png',
+             car: 'kyle_42.jpg'},
+            {driver: 'Images/drivers/landon.png',
+             car: 'landon_34.jpg'},
+            {driver: 'Images/drivers/martin.png',
+             car: 'martin_78.jpg'},
+            {driver: 'Images/drivers/matt.png',
+             car: 'matt_20.jpg'},
+            {driver: 'Images/drivers/michael.png',
+             car: 'michael_95.jpg'},
+            {driver: 'Images/drivers/paul.png',
+             car: 'paul_27.jpg'},
+            {driver: 'Images/drivers/ricky.png',
+             car: 'ricky_17.jpg'},
+            {driver: 'Images/drivers/ryannewman.png',
+             car: 'ryan_31.jpg'},
+            {driver: 'Images/drivers/ryanblaney.png',
+             car: 'ryan_21.jpg'},
+            {driver: 'Images/drivers/trevor.png',
+             car: 'trevor_6.jpg'},
+            {driver: 'Images/drivers/ty.png',
+             car: 'ty_13.jpg'}
+        ];
         var cards = [];
         var size = 4;
         var pick;
         function pickDriver() {
             for (i=0; i<size; i++) {
                 if (cards.length < size*2) {
-                    console.log(drivers.length);
-                    pick = Math.floor(Math.random() * (drivers.length-1));
-                    cards.push(drivers[pick]);
-                    cards.push(drivers[pick]);
+                    console.log(card_array.length);
+                    pick = Math.floor(Math.random() * (card_array.length-1));
+                    cards.push(card_array[pick]);
+                    cards.push(card_array[pick]);
                     drivers.splice(pick, 1);
-                    console.log(drivers);
+                    console.log(card_array);
                     console.log(cards);
                 }
             }
@@ -83,7 +139,7 @@
         function buildDaytona () {
             $('.main_body *').remove();
             var div_container = $('<div>', {
-                "class": "logos_container"
+                "class": "gameboard"
             });
 
             var main_body = $('.main_body');
@@ -306,7 +362,6 @@
         <div class="back">
             <img src="Images/drivers/logo.png" class="img-responsive img-thumbnail">
         </div>
-    </div>
     </div>
 </div>
 
