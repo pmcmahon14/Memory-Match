@@ -59,6 +59,9 @@
     </style>
 
     <script>
+        $(document).ready(function() {
+           $('.reset').on("load",buildDaytona);
+        });
         $(document).ready(function(){
             $('.card').click(pickCard);
             //$('.resetCards').click(resetCards);
