@@ -151,11 +151,12 @@
                 if (cards.length < size*2) {
                     console.log(cardArray.length);
                     pick = Math.floor(Math.random() * (cardArray.length-1));
-                    cards.push(cardArray[pick]);
-                    cards.push(cardArray[pick]);
+                    console.log('this card was picked ' + cardArray[pick].driver);
+                    cards.push(cardArray[pick].driver);
+                    cards.push(cardArray[pick].driver);
                     cardArray.splice(pick, 1);
-                    console.log(cardArray);
-                    console.log(cards);
+                    //console.log('cardArray has this left ' + cardArray);
+                    console.log('cards has this in it ' + cards);
                 }
             }
         }
