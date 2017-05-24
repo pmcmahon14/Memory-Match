@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        var cardArray = [0,1,2,3,4,5,6,7,8,9];
+        var cards = [];
+        var size = 4;
+        var pick;
+        function pickDriver() {
+            for (i=0; i<size; i++) {
+                if (cards.length < size*2) {
+                    console.log(cardArray.length);
+                    pick = Math.floor(Math.random() * (cardArray.length-1));
+                    cards.push(cardArray[pick]);
+                    cards.push(cardArray[pick]);
+                    cardArray.splice(pick, 1);
+                    console.log('cardArray has this left ' + cardArray);
+                    console.log('cards has this in it ' + cards);
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+
+</body>
+</html>

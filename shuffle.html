@@ -59,7 +59,7 @@
     </style>
 
     <script>
-        $(document).ready(function() {
+        /*$(document).ready(function() {
            $('.reset').on("load",buildDaytona);
         });
         $(document).ready(function(){
@@ -69,12 +69,12 @@
             function pickDriver() {
                 for (i = 0; i < size; i++) {
                     if (cards.length < size * 2) {
-                        console.log(card_array.length);
-                        pick = Math.floor(Math.random() * (card_array.length - 1));
-                        cards.push(card_array[pick]);
-                        cards.push(card_array[pick]);
+                        console.log(cardArray.length);
+                        pick = Math.floor(Math.random() * (cardArray.length - 1));
+                        cards.push(cardArray[pick]);
+                        cards.push(cardArray[pick]);
                         drivers.splice(pick, 1);
-                        console.log(card_array);
+                        console.log(cardArray);
                         console.log(cards);
                     }
                 }
@@ -84,8 +84,8 @@
                     });
                 }
             }
-        });
-        var card_array = [
+        });*/
+        var cardArray = [
             {driver: 'Images/drivers/aj.png',
              car: 'AJ_47.jpg'},
             {driver: 'Images/drivers/aric.png',
@@ -144,17 +144,17 @@
              car: 'ty_13.jpg'}
         ];
         var cards = [];
-        var size = 9;
+        var size = 4;
         var pick;
         function pickDriver() {
             for (i=0; i<size; i++) {
                 if (cards.length < size*2) {
-                    console.log(card_array.length);
-                    pick = Math.floor(Math.random() * (card_array.length-1));
-                    cards.push(card_array[pick]);
-                    cards.push(card_array[pick]);
-                    drivers.splice(pick, 1);
-                    console.log(card_array);
+                    console.log(cardArray.length);
+                    pick = Math.floor(Math.random() * (cardArray.length-1));
+                    cards.push(cardArray[pick]);
+                    cards.push(cardArray[pick]);
+                    cardArray.splice(pick, 1);
+                    console.log(cardArray);
                     console.log(cards);
                 }
             }
@@ -162,7 +162,7 @@
 
         //create gameboard
 
-        function buildDaytona () {
+        /*function buildDaytona () {
             var div_container = $('<div>', {
                 "class": "gameboard"
             });
@@ -189,7 +189,7 @@
                 });
                 $('[cardindex=' + x + ']').append(img);//append each image into row html
             }
-        };
+        };*/
     </script>
 
 </head>
@@ -199,7 +199,7 @@
         <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Board<span class="caret"></span></button>
         <ul class="dropdown-menu">
             <li><a href="Daytona.html">Daytona</a></li>
-            <li><a href="Charotte.html">Charlotte</a></li>
+            <li><a href="Charlotte.html">Charlotte</a></li>
             <li><a href="Bristol.html">Bristol</a></li>
         </ul>
     </div>
