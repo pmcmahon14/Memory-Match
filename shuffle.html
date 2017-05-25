@@ -144,53 +144,51 @@
              car: 'ty_13.jpg'}
         ];
         var cards = [];
-        var size = 4;
+        var size = 9;
         var pick;
         function pickDriver() {
             for (i=0; i<size; i++) {
                 if (cards.length < size*2) {
-                    console.log(cardArray.length);
                     pick = Math.floor(Math.random() * (cardArray.length-1));
                     console.log('this card was picked ' + cardArray[pick].driver);
                     cards.push(cardArray[pick].driver);
                     cards.push(cardArray[pick].driver);
                     cardArray.splice(pick, 1);
-                    //console.log('cardArray has this left ' + cardArray);
                     console.log('cards has this in it ' + cards);
                 }
-            }
-        }
+            }return(cards);
+        }buildDaytona();
 
         //create gameboard
 
-        /*function buildDaytona () {
-            var div_container = $('<div>', {
+        function buildDaytona () {
+            /*var gameboard = $('<div>', {
                 "class": "gameboard"
-            });
+            });*/
 
             var count = 0;
             for (var i = 0; i < 3; i++) {
-                var div_row = $('<div>', {                  // created container div
+                var cardRow = $('<div>', {                  // created container div
                     "class": "row"
                 });
-                $(div_container).append(div_row);           // append div row into div container
+                $('.gameboard').append(cardRow);           // append div row into div container
                 for (var j = 0; j < 6; j++) {
-                    var div_columns = $('<div>', {          // created 6 div with class of "row"
-                        "class": "col-xs-2",
+                    var card = $('<div>', {          // created 6 div with class of "row"
+                        "class": "front col-xs-2",
                         "cardindex": count++
                     });
-                    $(div_row).append(div_columns);
+                    $(cardRow).append(card);
                 }
             }
 
             for (var x = 0; x < cards.length; x++) {
-                var img = $("<img class='img-responsive img-thumbnail'>", {
-                    "src": cards[x],
-                    "class": "front"
+                var img = $("<img>", {
+                    "src": "Images/drivers/" + cards[x],
+                    "class": "img-responsive img-thumbnail"
                 });
                 $('[cardindex=' + x + ']').append(img);//append each image into row html
             }
-        };*/
+        }
     </script>
 
 </head>
