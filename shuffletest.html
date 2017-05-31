@@ -3,7 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script>
+        $(document).ready(function(){
+            var gameBoard = $('.gameboard');
+            gameBoard.on('click', '.card', '.col-xs-2');
+            pickDriver();
+        });
         //var cardArray = [0,1,2,3,4,5,6,7,8,9];
         var cardArray = [
             {driver: 'Images/drivers/aj.png',
@@ -87,10 +93,11 @@
         function buildDaytona () {
             var x = 0;
             var textToInsert = [];
-            var length = cards.length;
-            for (var a = 0; a = length; a +=) {
-                textToInsert[x++] = '<div class="card col-xs-2"><div class="front"><img src="cards[x]" class="img-responsive img-thumbnail"></div><div class="back"><img src="Images/drivers/logo.png" class="img-responsive img-thumbnail"></div></div>'
-            }$('.gameboard').append(textToInsert);
+            var length = tempCards.length;
+            for (var a = 0; a = length; a++) {
+                textToInsert[x++] = '<div class="card col-xs-2"><div class="front"><img src=' + tempCards[x] + ' class="img-responsive img-thumbnail"></div><div class="back"><img src="Images/drivers/logo.png" class="img-responsive img-thumbnail"></div></div>';
+                $('.gameboard').append(textToInsert);
+            }
 
             /*var gameboard = $('<div>', {
              "class": "gameboard"
@@ -122,6 +129,6 @@
     </script>
 </head>
 <body>
-
+<div class="gameboard"></div>
 </body>
 </html>
