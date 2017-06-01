@@ -2,17 +2,69 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
     <title>Title</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <style>
+        @media (max-width: 600px) {
+            .container-fluid {
+                display: none;
+            }
+        }
+        .logo {
+            height: 15vh;
+            background-color: #999999;
+        }
+        .stats {
+            text-align: center;
+        }
+        .stats.matches, .stats.accuracy {
+            height: 15vh;
+            background-color: #cccccc;
+        }
+        .stats.attempts, .stats.wins {
+            height: 15vh;
+            background-color: #999999;
+        }
+        .reset {
+            text-align: center;
+            height: 15vh;
+            background-color: #cccccc;
+        }
+        button {
+            margin-top: 10px;
+        }
+        .card.light {
+            height: 26vh;
+            background-color: #dddddd;
+        }
+        .card.dark {
+            height: 26vh;
+            background-color: #55ffff;
+        }
+        .front {
+            max-width: 100%;
+        }
+        .timer {
+            height: 7vh;
+            background-color: yellow;
+        }
+        .back {
+            position: absolute;
+            top: 0;
+        }
+    </style>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="script.js"></script>
     <script>
         $(document).ready(function(){
             pickDriver();
             var gameBoard = $('.gameboard');
-            gameBoard.on('click', 'div.card.col-xs-2 div.front div.back' ,function(){
-                buildDaytona($(this).attr('cards'));
+            gameBoard.on('click', '.card.col-xs-2 div.front', function(){
+                buildDaytona($(this).attr('imgindex'));
             });
         });
-        //var cardArray = [0,1,2,3,4,5,6,7,8,9];
         var cardArray = [
             {driver: 'Images/drivers/aj.png',
                 car: 'AJ_47.jpg'},
@@ -78,11 +130,9 @@
             for (i=0; i<size; i++) {
                 if (cards.length < size*2) {
                     pick = Math.floor(Math.random() * (cardArray.length-1));
-                    //console.log('this card was picked ' + cardArray[pick].driver);
                     cards.push(cardArray[pick].driver);
                     cards.push(cardArray[pick].driver);
                     cardArray.splice(pick, 1);
-                    //console.log('cards has this in it ' + cards);
                 }
             }
 
@@ -114,24 +164,24 @@
         //create gameboard
 
         function buildDaytona () {
-            $('.gameboard *').remove();
-            var card_container = $('<div>', {
+            //$('.gameboard *').remove();
+            var cardContainer = $('<div>', {
                 "class": "card"
             });
 
             var gameBoard = $('.gameboard');
-            gameBoard.append(card_container); //append container div into Main body
+            gameBoard.append(cardContainer); //append container div into Main body
 
             var count = 0;
             for (var i = 0; i < 3; i++) {
                 var div_row = $('<div>', {                  // created container div
                     "class": "row"
                 });
-                $(card_container).append(div_row);           // append div row into div container
-                for (var j = 0; j < 3; j++) {
+                $(cardContainer).append(div_row);           // append div row into div container
+                for (var j = 0; j < 6; j++) {
                     var div_columns = $('<div>', {          // created 3 div with class of "row"
                         "class": "col-xs-2",
-                        "cards": count++
+                        "imgindex": count++
                     });
                     $(div_row).append(div_columns);
                 }
@@ -139,15 +189,58 @@
 
             for (var x = 0; x < cards.length; x++) {
                 var img = $("<img>", {
-                    "src": "images/" + cards[x].image,
+                    "src": cards[x],
                     "class": "image-responsive img-thumbnail"
                 });
-                $('[cards=' + x + ']').append(img);//append each image into row html
+                $('[imgindex=' + x + ']').append(img);//append each image into row html
             }
         }
     </script>
 </head>
 <body>
-<div class="gameboard"></div>
+<div class="container-fluid">
+    <div class="header">
+        <div class="logo col-xs-1">
+            <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Board<span class="caret"></span></button>
+            <ul class="dropdown-menu">
+                <li><a href="Daytona.html">Daytona</a></li>
+                <li><a href="Charlotte.html">Charlotte</a></li>
+                <li><a href="Bristol.html">Bristol</a></li>
+            </ul>
+        </div>
+        <div class="logo col-xs-1">
+            <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Level<span class="caret"></span></button>
+            <ul class="dropdown-menu">
+                <li><a href="#">Easy</a></li>
+                <li><a href="#">Hard</a></li>
+            </ul>
+        </div>
+        <div class="stats matches col-xs-2">
+            <p>Matches</p>
+            <p id="matches">0</p>
+        </div>
+        <div class="stats attempts col-xs-2">
+            <p>Attempts</p>
+            <p id="attempts">0</p>
+        </div>
+        <div class="stats accuracy col-xs-2">
+            <p>Accuracy</p>
+            <p id="accuracy">0</p>
+        </div>
+        <div class="stats wins col-xs-2">
+            <p>Wins</p>
+            <p id="wins">0</p>
+        </div>
+        <div class="reset col-xs-2">
+            <button type="button" class="btn btn-md btn-danger" onclick="reset()">Reset</button>
+        </div>
+        <div class="timer col-xs-12">
+            Timer
+        </div>
+    </div>
+
+
+    <div class="gameboard"></div>
+</div>
 </body>
 </html>
