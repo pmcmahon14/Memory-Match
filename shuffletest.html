@@ -34,13 +34,8 @@
         button {
             margin-top: 10px;
         }
-        .card.light {
+        .card {
             height: 26vh;
-            background-color: #dddddd;
-        }
-        .card.dark {
-            height: 26vh;
-            background-color: #55ffff;
         }
         .front {
             max-width: 100%;
@@ -61,9 +56,7 @@
         $(document).ready(function(){
             pickDriver();
             var gameBoard = $('.gameboard');
-            gameBoard.on('click', '.card.col-xs-2 div.front', function(){
-                buildDaytona($(this).attr('imgindex'));
-            });
+            buildDaytona($(this).attr('imgindex'));
         });
         var cardArray = [
             {driver: 'Images/drivers/aj.png',
@@ -124,14 +117,14 @@
                 car: 'ty_13.jpg'}
         ];
         var cards = [];
-        var size = 9;
+        var size = 3;
         var pick;
         function pickDriver() {
             for (i=0; i<size; i++) {
                 if (cards.length < size*2) {
                     pick = Math.floor(Math.random() * (cardArray.length-1));
-                    cards.push(cardArray[pick].car);
-                    cards.push(cardArray[pick].car);
+                    cards.push(cardArray[pick]);
+                    cards.push(cardArray[pick]);
                     cardArray.splice(pick, 1);
                 }
             }
@@ -164,13 +157,13 @@
         //create gameboard
 
         function buildDaytona () {
-            $('.gameboard *').remove();
+            //$('.gameboard *').remove();
             var cardContainer = $('<div>', {
                 "class": "card"
             });
 
             var gameBoard = $('.gameboard');
-            gameBoard.append(cardContainer); //append container div into Main body
+            gameBoard.append(cardContainer).appendTo('.container-fluid'); //append container div into Main body
 
             var count = 0;
             for (var i = 0; i < 3; i++) {
@@ -190,8 +183,8 @@
 
             for (var x = 0; x < cards.length; x++) {
                 var img = $("<img>", {
-                    "src": "Images/cars/" + cards[x],
-                    "class": "image-responsive img-thumbnail"
+                    "src": "Images/cars/" + cards[x].car,
+                    "class": "img-responsive img-thumbnail"
                 });
                 $('[imgindex=' + x + ']').append(img);//append each image into row html
                 console.log($('[imgindex=' + x + ']').append(img));
