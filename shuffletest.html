@@ -117,7 +117,7 @@
                 car: 'ty_13.jpg'}
         ];
         var cards = [];
-        var size = 3;
+        var size = 9;
         var pick;
         function pickDriver() {
             for (i=0; i<size; i++) {
@@ -159,7 +159,8 @@
         function buildDaytona () {
             //$('.gameboard *').remove();
             var cardContainer = $('<div>', {
-                "class": "card"
+                "class": "card",
+                "style": "height: 26vh"
             });
 
             var gameBoard = $('.gameboard');
