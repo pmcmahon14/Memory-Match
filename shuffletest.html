@@ -11,32 +11,21 @@
                 display: none;
             }
         }
-        .logo {
+        .header{
             height: 15vh;
-            background-color: #999999;
         }
-        .stats {
+        .stats .reset{
             text-align: center;
         }
-        .stats.matches, .stats.accuracy {
-            height: 15vh;
-            background-color: #cccccc;
-        }
-        .stats.attempts, .stats.wins {
-            height: 15vh;
-            background-color: #999999;
-        }
-        .reset {
-            text-align: center;
-            height: 15vh;
-            background-color: #cccccc;
+        .row {
+            height: 26vh;
         }
         button {
             margin-top: 10px;
         }
-        .card {
+        /*.card {
             height: 26vh;
-        }
+        }*/
         .front {
             max-width: 100%;
         }
@@ -157,24 +146,22 @@
         //create gameboard
 
         function buildDaytona () {
-            //$('.gameboard *').remove();
             var cardContainer = $('<div>', {
-                "class": "card",
-                "style": "height: 26vh"
+                "class": "card"
             });
 
             var gameBoard = $('.gameboard');
-            gameBoard.append(cardContainer).appendTo('.container-fluid'); //append container div into Main body
+            //gameBoard.appendTo('.container-fluid'); //append container div into Main body
 
             var count = 0;
             for (var i = 0; i < 3; i++) {
                 var div_row = $('<div>', {                  // created container div
-                    "class": "row"
+                    "class": "row",
                 });
-                $(cardContainer).append(div_row);           // append div row into div container
+                $(gameBoard).append(div_row);           // append div row into div container
                 for (var j = 0; j < 6; j++) {
                     var div_columns = $('<div>', {          // created 3 div with class of "row"
-                        "class": "col-xs-2",
+                        "class": "front col-xs-2",
                         "imgindex": count++
                     });
                     $(div_row).append(div_columns);
@@ -230,9 +217,9 @@
         <div class="reset col-xs-2">
             <button type="button" class="btn btn-md btn-danger" onclick="reset()">Reset</button>
         </div>
-        <div class="timer col-xs-12">
-            Timer
-        </div>
+    </div>
+    <div class="timer col-xs-12">
+        Timer
     </div>
 
 
