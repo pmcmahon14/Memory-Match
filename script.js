@@ -19,6 +19,20 @@ $(document).ready(function(){
 
 //READS VALUES OF BOTH CARDS
 
+function move() {
+    var elem = document.getElementById("timeleft");
+    var width = 1;
+    var id = setInterval(frame, 500);
+    function frame() {
+        if (width >= 100) {
+            clearInterval(id);
+        } else {
+            width++;
+            elem.style.width = width + '%';
+        }
+    }
+};
+
 function pickCard(){
     if($(this).find('.back').is(':visible') === true){
         $(this).find('.back').hide();

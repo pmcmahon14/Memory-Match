@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width">
     <title>Title</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!--<script src="script.js"></script>-->
     <style>
         @media (max-width: 600px) {
             .container-fluid {
@@ -14,7 +17,7 @@
         .header{
             height: 15vh;
         }
-        .stats .reset{
+        .stats, .reset {
             text-align: center;
         }
         .row {
@@ -23,9 +26,9 @@
         button {
             margin-top: 10px;
         }
-        /*.card {
+        .card {
             height: 26vh;
-        }*/
+        }
         .front {
             max-width: 100%;
         }
@@ -37,10 +40,11 @@
             position: absolute;
             top: 0;
         }
+        .gameboard {
+            margin-top: 7%;
+        }
     </style>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script src="script.js"></script>
+
     <script>
         $(document).ready(function(){
             pickDriver();
@@ -161,7 +165,7 @@
                 $(gameBoard).append(div_row);           // append div row into div container
                 for (var j = 0; j < 6; j++) {
                     var div_columns = $('<div>', {          // created 3 div with class of "row"
-                        "class": "front col-xs-2",
+                        "class": "card col-xs-2",
                         "imgindex": count++
                     });
                     $(div_row).append(div_columns);
@@ -170,11 +174,14 @@
             }
 
             for (var x = 0; x < cards.length; x++) {
+                var divfront = $("<div class='front'>");
+                var divback = $("<div class='back'><img src='Images/drivers/logo.png' class='img-responsive img-thumbnail'>");
                 var img = $("<img>", {
                     "src": "Images/drivers/" + cards[x].driver,
                     "class": "img-responsive img-thumbnail"
                 });
-                $('[imgindex=' + x + ']').append(img);//append each image into row html
+                $(divfront).append('[imgindex=' + x + ']').appendTo(img);//append each image into row html
+                $(div_columns).append(divback);
                 console.log($('[imgindex=' + x + ']').append(img));
             }
         }

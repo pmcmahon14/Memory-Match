@@ -51,6 +51,12 @@
         .timer {
             height: 7vh;
             background-color: yellow;
+            width: 100%;
+        }
+        #timeleft {
+            width: 1%;
+            height: 30px;
+            background-color: green;
         }
         .back {
             position: absolute;
@@ -96,7 +102,7 @@
             <button type="button" class="btn btn-md btn-danger" onclick="reset()">Reset</button>
         </div>
         <div class="timer col-xs-12">
-            Timer
+            <div id="timeleft"></div>
         </div>
     </div>
 
