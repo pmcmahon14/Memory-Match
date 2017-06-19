@@ -175,13 +175,11 @@
 
             for (var x = 0; x < cards.length; x++) {
                 var divfront = $("<div class='front'>");
-                var divback = $("<div class='back'><img src='Images/drivers/logo.png' class='img-responsive img-thumbnail'>");
                 var img = $("<img>", {
                     "src": "Images/drivers/" + cards[x].driver,
                     "class": "img-responsive img-thumbnail"
                 });
                 $(divfront).append('[imgindex=' + x + ']').appendTo(img);//append each image into row html
-                $(div_columns).append(divback);
                 console.log($('[imgindex=' + x + ']').append(img));
             }
         }
