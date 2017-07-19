@@ -150,10 +150,6 @@
         //create gameboard
 
         function buildDaytona () {
-            var cardContainer = $('<div>', {
-                "class": "card"
-            });
-
             var gameBoard = $('.gameboard');
             //gameBoard.appendTo('.container-fluid'); //append container div into Main body
 
@@ -184,8 +180,8 @@
                     "src": "Images/drivers/logo.png",
                     "class": "img-responsive img-thumbnail"
                 });
-                $(divfront).append('[imgindex=' + x + ']').appendTo(img);//append each image into row html
-                $(divback).append('[imgindex=' + x + ']').appendTo(backimg);
+                //$(divfront).append('[imgindex=' + x + ']').appendTo(img);//append each image into row html
+                //$(divback).append('[imgindex=' + x + ']').appendTo(backimg);
                 console.log($('[imgindex=' + x + ']').append(img));
                 console.log($('[imgindex=' + x + ']').append(backimg));
             }
