@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!--<link rel="stylesheet" href="style.css">-->
     <!--<script src="script.js"></script>-->
     <style>
         @media (max-width: 600px) {
@@ -182,6 +183,8 @@
                 });
                 $(divfront).append('[imgindex=' + x + ']').appendTo(img);//append each image into row html
                 $(divback).append('[imgindex=' + x + ']').appendTo(backimg);
+                //$('.front').html('<img src="[imgindex=' + x + ']">');//append each image into row html
+                //$('.back').html('<img src="[imgindex=' + x + ']">');
                 console.log($('[imgindex=' + x + ']').append(img));
                 console.log($('[imgindex=' + x + ']').append(backimg));
             }
