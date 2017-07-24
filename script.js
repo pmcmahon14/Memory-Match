@@ -8,14 +8,120 @@ var totalMatch = 9;
 var winCount = 0;
 var accuracy = 0;
 var attempts = 0;
+var cards = [];
+var size = 9;
+var pick;
 
 //LOAD SCREEN
 
 $(document).ready(function(){
     $('.card').click(pickCard);
     //$('.resetCards').click(resetCards);
+    pickDriver();
+    buildDaytona();
     reset();
 });
+
+var cardArray = [
+    {driver: 'Images/drivers/aj.png',
+        car: 'AJ_47.jpg'},
+    {driver: 'Images/drivers/aric.png',
+        car: 'aric_43.jpg'},
+    {driver: 'Images/drivers/austin.png',
+        car: 'Austin_3.jpg'},
+    {driver: 'Images/drivers/brad.png',
+        car: 'brad_2.jpg'},
+    {driver: 'Images/drivers/chase.png',
+        car: 'chase_24.jpg'},
+    {driver: 'Images/drivers/chris.png',
+        car: 'chris_37.jpg'},
+    {driver: 'Images/drivers/clint.png',
+        car: 'clint_14.jpg'},
+    {driver: 'Images/drivers/cole.png',
+        car: 'cole_72.jpg'},
+    {driver: 'Images/drivers/dale.png',
+        car: 'dale_88.jpg'},
+    {driver: 'Images/drivers/danica.png',
+        car: 'danica_10.jpg'},
+    {driver: 'Images/drivers/daniel.png',
+        car: 'daniel_19.jpg'},
+    {driver: 'Images/drivers/david.png',
+        car: 'david_38.jpg'},
+    {driver: 'Images/drivers/denny.png',
+        car: 'denny_11.jpg'},
+    {driver: 'Images/drivers/erik.png',
+        car: 'erik_77.jpg'},
+    {driver: 'Images/drivers/jamie.png',
+        car: 'jamie_1.jpg'},
+    {driver: 'Images/drivers/jimmie.png',
+        car: 'jimmie_48.jpg'},
+    {driver: 'Images/drivers/kylebusch.png',
+        car: 'kyle_18.jpg'},
+    {driver: 'Images/drivers/kylelarson.png',
+        car: 'kyle_42.jpg'},
+    {driver: 'Images/drivers/landon.png',
+        car: 'landon_34.jpg'},
+    {driver: 'Images/drivers/martin.png',
+        car: 'martin_78.jpg'},
+    {driver: 'Images/drivers/matt.png',
+        car: 'matt_20.jpg'},
+    {driver: 'Images/drivers/michael.png',
+        car: 'michael_95.jpg'},
+    {driver: 'Images/drivers/paul.png',
+        car: 'paul_27.jpg'},
+    {driver: 'Images/drivers/ricky.png',
+        car: 'ricky_17.jpg'},
+    {driver: 'Images/drivers/ryannewman.png',
+        car: 'ryan_31.jpg'},
+    {driver: 'Images/drivers/ryanblaney.png',
+        car: 'ryan_21.jpg'},
+    {driver: 'Images/drivers/trevor.png',
+        car: 'trevor_6.jpg'},
+    {driver: 'Images/drivers/ty.png',
+        car: 'ty_13.jpg'}
+];
+
+function pickDriver() {
+    for (var i=0; i<size; i++) {
+        if (cards.length < size*2) {
+            pick = Math.floor(Math.random() * (cardArray.length-1));
+            cards.push(cardArray[pick]);
+            cards.push(cardArray[pick]);
+            cardArray.splice(pick, 1);
+        }
+    }
+
+    function shuffle(cards) {
+        var currentIndex = cards.length, temporaryValue, randomIndex;
+
+        // While there remain elements to shuffle...
+        while (0 !== currentIndex) {
+
+            // Pick a remaining element...
+            randomIndex = Math.floor(Math.random() * currentIndex);
+            currentIndex -= 1;
+
+            // And swap it with the current element.
+            temporaryValue = cards[currentIndex];
+            cards[currentIndex] = cards[randomIndex];
+            cards[randomIndex] = temporaryValue;
+        }
+        return cards;
+    }
+
+// Used like so
+    cards = shuffle(cards);
+    console.log(cards);
+    buildDaytona();
+}
+
+//create gameboard
+
+function buildDaytona () {
+    for (var x = 0; x < cards.length; x++) {
+        $('#' + x).html("<img src='"+cards[x].driver+"' class='img-responsive img-thumbnail'>");
+    }
+}
 
 //READS VALUES OF BOTH CARDS
 
@@ -31,7 +137,7 @@ function move() {
             elem.style.width = width + '%';
         }
     }
-};
+}
 
 function pickCard(){
     if($(this).find('.back').is(':visible') === true){
@@ -41,7 +147,6 @@ function pickCard(){
         if(firstCard === null){
             firstCard = this;
             console.log('first card is', firstCard);
-            return
             }else{
             secondCard = this;
             attempts++;
@@ -61,7 +166,6 @@ function pickCard(){
                 //CHECKS FOR GAME WIN, UPDATE WIN COUNT
 
                 if(matchCount < totalMatch){
-                    return
                     }else{
                     winCount++;
                     $('#wins').text(winCount);
@@ -79,7 +183,7 @@ function pickCard(){
                     firstCard = null;
                     secondCard = null;
                     $('.card').click(pickCard);
-                    }, 1000)
+                    }, 1000);
                 accuracyRating();
 
             }
@@ -89,7 +193,6 @@ function pickCard(){
 
     }else{
         console.log('already clicked', this);
-        return;
     }
 }
 
@@ -104,6 +207,8 @@ function reset() {
     $('#accuracy').text(accuracy);
     $('.back').show();
     console.log('reset clicked');
+    cards = [];
+    pickDriver();
 }
 
 //CALCULATES ACCURACY
@@ -116,47 +221,10 @@ function accuracyRating() {
 
 //SETS BOARD UP FOR SELECTED LEVEL OF PLAY
 
-function settings() {
+/*function settings() {
 
-}
+}*/
 
 //PICKS PAIRS AND SHUFFLES CARDS
 
-function shuffle() {
 
-}
-/* Called by "$(document).ready" and "resetClicked".  Appends the 9 card fronts (2x) randomly into the 18 slots. */
-
-/*function insertFrontCards () {
-    var card;
-    var card_img;
-    var slot;
-    var randomized_array;
-    randomized_array = generateRandomCardSlots();
-    for (var h=0; h <= 9; h+=9) {
-        for (var i=1; i <= 9; i++) {                // go thru this loop 2x, when h=0 and h=9.
-            if (theme === "pokemon") {
-                if (i === 3 || i === 4) {
-                    card = "images/pkmn_" + i + ".png";
-                } else {
-                    card = "images/pkmn_" + i + ".jpg";
-                }
-            } else {    // My Little Pony theme
-                if (i === 4) {
-                    card = "images/pony4b.png";     // pony4 is a png; all the rest are jpg
-                } else {
-                    card = "images/pony" + i + "b.jpg";
-                }
-            }
-            card_img = $("<image>",
-                {
-                    src:    card,
-                    alt:    "pony or pkmn" + i,
-                    class:  "card_front"
-                });
-            slot = "#slot" + randomized_array[i-1+h] + " .front";
-            $(slot).append(card_img);
-        }
-    }
-    $("image").width("90%").height("100%");
-}*/
