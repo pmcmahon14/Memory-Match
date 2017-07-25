@@ -12,6 +12,7 @@ var cards = [];
 var size = 9;
 var pick;
 var timer = 50;
+var timeleft = $('#timeleft');
 
 //LOAD SCREEN
 
@@ -140,20 +141,32 @@ function move() {
     }
 }
 
+this.startGame = function () {
+    if (self.clearBoard) {
+        //setPlayer(0);
+        //self.clearBoard = false;
+        //self.inPlay = true;
+        timer();
+        //var audio = {};
+        //audio["walk"] = new Audio();
+        //audio["walk"].src = "mp3/11408^LASER1.mp3";  //audio file source
+        //audio["walk"].play(); //audio file play
+    }
+};
+
 function timer() {
     startTime = Date.now();
     timer = setTimeout(updateProgress,100);
 }
 
 function updateProgress() {
-    if (timerCount == 0) {
+    if (timer == 0) {
         alert("Red Flag!");
         resetTimer();
-        self.switchPlayer();
     } else {
-        timerCount++;
+        timer--;
         var percent = Math.floor(((Date.now() - startTime) / 50000) * 100);
-        progressBar.css("width",percent+"%");
+        timeleft.css("width",percent+"%");
     }
 
     timer = setTimeout(updateProgress,100);
