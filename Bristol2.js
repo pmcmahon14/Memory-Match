@@ -1,17 +1,22 @@
+/**
+ * Created by Patrick on 7/24/2017.
+ */
+/**
+ * Created by Patrick on 7/24/2017.
+ */
 
 //SET VARIABLES
 
 var firstCard = null;
 var secondCard = null;
 var matchCount = 0;
-var totalMatch = 9;
+var totalMatch = 4;
 var winCount = 0;
 var accuracy = 0;
 var attempts = 0;
 var cards = [];
-var size = 9;
+var size = 4;
 var pick;
-var timer = 50;
 
 //LOAD SCREEN
 
@@ -148,7 +153,7 @@ function pickCard(){
         if(firstCard === null){
             firstCard = this;
             console.log('first card is', firstCard);
-            }else{
+        }else{
             secondCard = this;
             attempts++;
             $('#attempts').text(attempts);
@@ -167,16 +172,16 @@ function pickCard(){
                 //CHECKS FOR GAME WIN, UPDATE WIN COUNT
 
                 if(matchCount < totalMatch){
-                    }else{
+                }else{
                     winCount++;
                     $('#wins').text(winCount);
                     $('#winner').show();
                     $('.reset').off('click');
-                    }
+                }
 
-                    //NO MATCH, TURN CARDS BACK OVER, UPDATE ACCURACY RATING AT FUNCTION
+                //NO MATCH, TURN CARDS BACK OVER, UPDATE ACCURACY RATING AT FUNCTION
 
-                    }else{
+            }else{
                 $('.card').off('click');
                 setTimeout(function(){
                     $(firstCard).find('.back').show();
@@ -184,36 +189,17 @@ function pickCard(){
                     firstCard = null;
                     secondCard = null;
                     $('.card').click(pickCard);
-                    }, 1000);
+                }, 1000);
                 accuracyRating();
 
             }
         }
 
-    //BLOCKS CARD ALREADY FACE UP
+        //BLOCKS CARD ALREADY FACE UP
 
     }else{
         console.log('already clicked', this);
     }
-}
-
-function timer() {
-    startTime = Date.now();
-    timer = setTimeout(updateProgress,100);
-}
-
-function updateProgress() {
-    if (timerCount == 0) {
-    alert("Red Flag!");
-        resetTimer();
-        self.switchPlayer();
-    } else {
-        timerCount++;
-        var percent = Math.floor(((Date.now() - startTime) / 50000) * 100);
-        progressBar.css("width",percent+"%");
-    }
-
-    timer = setTimeout(updateProgress,100);
 }
 
 //RESETS STATS
@@ -243,7 +229,7 @@ function accuracyRating() {
 
 /*function settings() {
 
-}*/
+ }*/
 
 //PICKS PAIRS AND SHUFFLES CARDS
 

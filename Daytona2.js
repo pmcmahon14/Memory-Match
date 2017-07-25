@@ -11,7 +11,6 @@ var attempts = 0;
 var cards = [];
 var size = 9;
 var pick;
-var timer = 50;
 
 //LOAD SCREEN
 
@@ -86,11 +85,11 @@ function pickDriver() {
     for (var i=0; i<size; i++) {
         if (cards.length < size*2) {
             pick = Math.floor(Math.random() * (cardArray.length-1));
-            cards.push(cardArray[pick]);
-            cards.push(cardArray[pick]);
+            cards.push(cardArray[pick].driver);
+            cards.push(cardArray[pick].car);
             cardArray.splice(pick, 1);
         }
-    }
+    }console.log(cards);
 
     function shuffle(cards) {
         var currentIndex = cards.length, temporaryValue, randomIndex;
@@ -120,7 +119,7 @@ function pickDriver() {
 
 function buildDaytona () {
     for (var x = 0; x < cards.length; x++) {
-        $('#' + x).html("<img src='"+cards[x].driver+"' class='img-responsive img-thumbnail'>");
+        $('#' + x).html("<img src='"+cards[x]+"' class='img-responsive img-thumbnail'>");
     }
 }
 
@@ -148,7 +147,7 @@ function pickCard(){
         if(firstCard === null){
             firstCard = this;
             console.log('first card is', firstCard);
-            }else{
+        }else{
             secondCard = this;
             attempts++;
             $('#attempts').text(attempts);
@@ -167,16 +166,16 @@ function pickCard(){
                 //CHECKS FOR GAME WIN, UPDATE WIN COUNT
 
                 if(matchCount < totalMatch){
-                    }else{
+                }else{
                     winCount++;
                     $('#wins').text(winCount);
                     $('#winner').show();
                     $('.reset').off('click');
-                    }
+                }
 
-                    //NO MATCH, TURN CARDS BACK OVER, UPDATE ACCURACY RATING AT FUNCTION
+                //NO MATCH, TURN CARDS BACK OVER, UPDATE ACCURACY RATING AT FUNCTION
 
-                    }else{
+            }else{
                 $('.card').off('click');
                 setTimeout(function(){
                     $(firstCard).find('.back').show();
@@ -184,36 +183,17 @@ function pickCard(){
                     firstCard = null;
                     secondCard = null;
                     $('.card').click(pickCard);
-                    }, 1000);
+                }, 1000);
                 accuracyRating();
 
             }
         }
 
-    //BLOCKS CARD ALREADY FACE UP
+        //BLOCKS CARD ALREADY FACE UP
 
     }else{
         console.log('already clicked', this);
     }
-}
-
-function timer() {
-    startTime = Date.now();
-    timer = setTimeout(updateProgress,100);
-}
-
-function updateProgress() {
-    if (timerCount == 0) {
-    alert("Red Flag!");
-        resetTimer();
-        self.switchPlayer();
-    } else {
-        timerCount++;
-        var percent = Math.floor(((Date.now() - startTime) / 50000) * 100);
-        progressBar.css("width",percent+"%");
-    }
-
-    timer = setTimeout(updateProgress,100);
 }
 
 //RESETS STATS
@@ -243,7 +223,7 @@ function accuracyRating() {
 
 /*function settings() {
 
-}*/
+ }*/
 
 //PICKS PAIRS AND SHUFFLES CARDS
 
