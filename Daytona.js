@@ -140,6 +140,25 @@ function move() {
     }
 }
 
+function timer() {
+    startTime = Date.now();
+    timer = setTimeout(updateProgress,100);
+}
+
+function updateProgress() {
+    if (timerCount == 0) {
+        alert("Red Flag!");
+        resetTimer();
+        self.switchPlayer();
+    } else {
+        timerCount++;
+        var percent = Math.floor(((Date.now() - startTime) / 50000) * 100);
+        progressBar.css("width",percent+"%");
+    }
+
+    timer = setTimeout(updateProgress,100);
+}
+
 function pickCard(){
     if($(this).find('.back').is(':visible') === true){
         $(this).find('.back').hide();
@@ -195,25 +214,6 @@ function pickCard(){
     }else{
         console.log('already clicked', this);
     }
-}
-
-function timer() {
-    startTime = Date.now();
-    timer = setTimeout(updateProgress,100);
-}
-
-function updateProgress() {
-    if (timerCount == 0) {
-    alert("Red Flag!");
-        resetTimer();
-        self.switchPlayer();
-    } else {
-        timerCount++;
-        var percent = Math.floor(((Date.now() - startTime) / 50000) * 100);
-        progressBar.css("width",percent+"%");
-    }
-
-    timer = setTimeout(updateProgress,100);
 }
 
 //RESETS STATS
