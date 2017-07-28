@@ -88,11 +88,11 @@ function pickDriver() {
     for (var i=0; i<size; i++) {
         if (cards.length < size*2) {
             pick = Math.floor(Math.random() * (cardArray.length-1));
-            cards.push(cardArray[pick]);
-            cards.push(cardArray[pick]);
+            cards.push(cardArray[pick].driver);
+            cards.push(cardArray[pick].car);
             cardArray.splice(pick, 1);
         }
-    }
+    }console.log(cards);
 
     function shuffle(cards) {
         var currentIndex = cards.length, temporaryValue, randomIndex;
@@ -122,7 +122,7 @@ function pickDriver() {
 
 function buildDaytona () {
     for (var x = 0; x < cards.length; x++) {
-        $('#' + x).html("<img src='"+cards[x].driver+"' class='img-responsive img-thumbnail'>");
+        $('#' + x).html("<img src='"+cards[x]+"' class='img-responsive img-thumbnail'>");
     }
 }
 

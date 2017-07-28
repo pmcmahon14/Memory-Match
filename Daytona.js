@@ -26,61 +26,61 @@ $(document).ready(function(){
 
 var cardArray = [
     {driver: 'Images/drivers/aj.png',
-        car: 'Images/cars/AJ_47.jpg'},
+        car: 'Images/cars/aj.png'},
     {driver: 'Images/drivers/aric.png',
-        car: 'Images/cars/aric_43.jpg'},
+        car: 'Images/cars/aric.png'},
     {driver: 'Images/drivers/austin.png',
-        car: 'Images/cars/Austin_3.jpg'},
+        car: 'Images/cars/austin.png'},
     {driver: 'Images/drivers/brad.png',
-        car: 'Images/cars/brad_2.jpg'},
+        car: 'Images/cars/brad.png'},
     {driver: 'Images/drivers/chase.png',
-        car: 'Images/cars/chase_24.jpg'},
+        car: 'Images/cars/chase.png'},
     {driver: 'Images/drivers/chris.png',
-        car: 'Images/cars/chris_37.jpg'},
+        car: 'Images/cars/chris.png'},
     {driver: 'Images/drivers/clint.png',
-        car: 'Images/cars/clint_14.jpg'},
+        car: 'Images/cars/clint.png'},
     {driver: 'Images/drivers/cole.png',
-        car: 'Images/cars/cole_72.jpg'},
+        car: 'Images/cars/cole.png'},
     {driver: 'Images/drivers/dale.png',
-        car: 'Images/cars/dale_88.jpg'},
+        car: 'Images/cars/dale.png'},
     {driver: 'Images/drivers/danica.png',
-        car: 'Images/cars/danica_10.jpg'},
+        car: 'Images/cars/danica.png'},
     {driver: 'Images/drivers/daniel.png',
-        car: 'Images/cars/daniel_19.jpg'},
+        car: 'Images/cars/daniel.png'},
     {driver: 'Images/drivers/david.png',
-        car: 'Images/cars/david_38.jpg'},
+        car: 'Images/cars/david.png'},
     {driver: 'Images/drivers/denny.png',
-        car: 'Images/cars/denny_11.jpg'},
+        car: 'Images/cars/denny.png'},
     {driver: 'Images/drivers/erik.png',
-        car: 'Images/cars/erik_77.jpg'},
+        car: 'Images/cars/erik.png'},
     {driver: 'Images/drivers/jamie.png',
-        car: 'Images/cars/jamie_1.jpg'},
+        car: 'Images/cars/jamie.png'},
     {driver: 'Images/drivers/jimmie.png',
-        car: 'Images/cars/jimmie_48.jpg'},
+        car: 'Images/cars/jimmie.png'},
     {driver: 'Images/drivers/kylebusch.png',
-        car: 'Images/cars/kyle_18.jpg'},
+        car: 'Images/cars/kylebusch.png'},
     {driver: 'Images/drivers/kylelarson.png',
-        car: 'Images/cars/kyle_42.jpg'},
+        car: 'Images/cars/kylelarson.png'},
     {driver: 'Images/drivers/landon.png',
-        car: 'Images/cars/landon_34.jpg'},
+        car: 'Images/cars/landon.png'},
     {driver: 'Images/drivers/martin.png',
-        car: 'Images/cars/martin_78.jpg'},
+        car: 'Images/cars/martin.png'},
     {driver: 'Images/drivers/matt.png',
-        car: 'Images/cars/matt_20.jpg'},
+        car: 'Images/cars/matt.png'},
     {driver: 'Images/drivers/michael.png',
-        car: 'Images/cars/michael_95.jpg'},
+        car: 'Images/cars/michael.png'},
     {driver: 'Images/drivers/paul.png',
-        car: 'Images/cars/paul_27.jpg'},
+        car: 'Images/cars/paul.png'},
     {driver: 'Images/drivers/ricky.png',
-        car: 'Images/cars/ricky_17.jpg'},
+        car: 'Images/cars/ricky.png'},
     {driver: 'Images/drivers/ryannewman.png',
-        car: 'Images/cars/ryan_31.jpg'},
+        car: 'Images/cars/ryannewman.png'},
     {driver: 'Images/drivers/ryanblaney.png',
-        car: 'Images/cars/ryan_21.jpg'},
+        car: 'Images/cars/ryanblaney.png'},
     {driver: 'Images/drivers/trevor.png',
-        car: 'Images/cars/trevor_6.jpg'},
+        car: 'Images/cars/trevor.png'},
     {driver: 'Images/drivers/ty.png',
-        car: 'Images/cars/ty_13.jpg'}
+        car: 'Images/cars/ty.png'}
 ];
 
 function pickDriver() {
@@ -127,7 +127,7 @@ function buildDaytona () {
 
 //READS VALUES OF BOTH CARDS
 
-function move() {
+/*function move() {
     var elem = document.getElementById("timeleft");
     var width = 1;
     var id = setInterval(frame, 500);
@@ -170,7 +170,7 @@ function updateProgress() {
     }
 
     timer = setTimeout(updateProgress,100);
-}
+}*/
 
 function pickCard(){
     if($(this).find('.back').is(':visible') === true){

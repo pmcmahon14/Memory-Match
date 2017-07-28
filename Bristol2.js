@@ -17,6 +17,12 @@ var attempts = 0;
 var cards = [];
 var size = 4;
 var pick;
+var c;
+var d;
+var temp;
+var temp2;
+var firstImage;
+var secondImage;
 
 //LOAD SCREEN
 
@@ -30,72 +36,72 @@ $(document).ready(function(){
 
 var cardArray = [
     {driver: 'Images/drivers/aj.png',
-        car: 'Images/cars/AJ_47.jpg'},
+        car: 'Images/thecars/aj.png'},
     {driver: 'Images/drivers/aric.png',
-        car: 'Images/cars/aric_43.jpg'},
+        car: 'Images/thecars/aric.png'},
     {driver: 'Images/drivers/austin.png',
-        car: 'Images/cars/Austin_3.jpg'},
+        car: 'Images/thecars/austin.png'},
     {driver: 'Images/drivers/brad.png',
-        car: 'Images/cars/brad_2.jpg'},
+        car: 'Images/thecars/brad.png'},
     {driver: 'Images/drivers/chase.png',
-        car: 'Images/cars/chase_24.jpg'},
+        car: 'Images/thecars/chase.png'},
     {driver: 'Images/drivers/chris.png',
-        car: 'Images/cars/chris_37.jpg'},
+        car: 'Images/thecars/chris.png'},
     {driver: 'Images/drivers/clint.png',
-        car: 'Images/cars/clint_14.jpg'},
+        car: 'Images/thecars/clint.png'},
     {driver: 'Images/drivers/cole.png',
-        car: 'Images/cars/cole_72.jpg'},
+        car: 'Images/thecars/cole.png'},
     {driver: 'Images/drivers/dale.png',
-        car: 'Images/cars/dale_88.jpg'},
+        car: 'Images/thecars/dale.png'},
     {driver: 'Images/drivers/danica.png',
-        car: 'Images/cars/danica_10.jpg'},
+        car: 'Images/thecars/danica.png'},
     {driver: 'Images/drivers/daniel.png',
-        car: 'Images/cars/daniel_19.jpg'},
+        car: 'Images/thecars/daniel.png'},
     {driver: 'Images/drivers/david.png',
-        car: 'Images/cars/david_38.jpg'},
+        car: 'Images/thecars/david.png'},
     {driver: 'Images/drivers/denny.png',
-        car: 'Images/cars/denny_11.jpg'},
+        car: 'Images/thecars/denny.png'},
     {driver: 'Images/drivers/erik.png',
-        car: 'Images/cars/erik_77.jpg'},
+        car: 'Images/thecars/erik.png'},
     {driver: 'Images/drivers/jamie.png',
-        car: 'Images/cars/jamie_1.jpg'},
+        car: 'Images/thecars/jamie.png'},
     {driver: 'Images/drivers/jimmie.png',
-        car: 'Images/cars/jimmie_48.jpg'},
+        car: 'Images/thecars/jimmie.png'},
     {driver: 'Images/drivers/kylebusch.png',
-        car: 'Images/cars/kyle_18.jpg'},
+        car: 'Images/thecars/kylebusch.png'},
     {driver: 'Images/drivers/kylelarson.png',
-        car: 'Images/cars/kyle_42.jpg'},
+        car: 'Images/thecars/kylelarson.png'},
     {driver: 'Images/drivers/landon.png',
-        car: 'Images/cars/landon_34.jpg'},
+        car: 'Images/thecars/landon.png'},
     {driver: 'Images/drivers/martin.png',
-        car: 'Images/cars/martin_78.jpg'},
+        car: 'Images/thecars/martin.png'},
     {driver: 'Images/drivers/matt.png',
-        car: 'Images/cars/matt_20.jpg'},
+        car: 'Images/thecars/matt.png'},
     {driver: 'Images/drivers/michael.png',
-        car: 'Images/cars/michael_95.jpg'},
+        car: 'Images/thecars/michael.png'},
     {driver: 'Images/drivers/paul.png',
-        car: 'Images/cars/paul_27.jpg'},
+        car: 'Images/thecars/paul.png'},
     {driver: 'Images/drivers/ricky.png',
-        car: 'Images/cars/ricky_17.jpg'},
+        car: 'Images/thecars/ricky.png'},
     {driver: 'Images/drivers/ryannewman.png',
-        car: 'Images/cars/ryan_31.jpg'},
+        car: 'Images/thecars/ryannewman.png'},
     {driver: 'Images/drivers/ryanblaney.png',
-        car: 'Images/cars/ryan_21.jpg'},
+        car: 'Images/thecars/ryanblaney.png'},
     {driver: 'Images/drivers/trevor.png',
-        car: 'Images/cars/trevor_6.jpg'},
+        car: 'Images/thecars/trevor.png'},
     {driver: 'Images/drivers/ty.png',
-        car: 'Images/cars/ty_13.jpg'}
+        car: 'Images/thecars/ty.png'}
 ];
 
 function pickDriver() {
     for (var i=0; i<size; i++) {
         if (cards.length < size*2) {
             pick = Math.floor(Math.random() * (cardArray.length-1));
-            cards.push(cardArray[pick]);
-            cards.push(cardArray[pick]);
+            cards.push(cardArray[pick].driver);
+            cards.push(cardArray[pick].car);
             cardArray.splice(pick, 1);
         }
-    }
+    }console.log(cards);
 
     function shuffle(cards) {
         var currentIndex = cards.length, temporaryValue, randomIndex;
@@ -125,7 +131,7 @@ function pickDriver() {
 
 function buildDaytona () {
     for (var x = 0; x < cards.length; x++) {
-        $('#' + x).html("<img src='"+cards[x].driver+"' class='img-responsive img-thumbnail'>");
+        $('#' + x).html("<img src='"+cards[x]+"' class='img-responsive img-thumbnail'>");
     }
 }
 
@@ -152,16 +158,33 @@ function pickCard(){
         console.log('back hidden');
         if(firstCard === null){
             firstCard = this;
+            temp = $(firstCard).find('img').attr('src').slice(7,8);
+            if (temp === "d") {
+                d = temp
+            } else {
+                c = temp
+            }
+            console.log('This is ' + d + ' and this is ' + c);
+            firstImage = $(firstCard).find('img').attr('src').slice(15,30);
+            //console.log(firstCard);
             console.log('first card is', firstCard);
         }else{
             secondCard = this;
+            temp2 = $(secondCard).find('img').attr('src').slice(7,8);
+            if (d != null) {
+                c = temp2
+            }else{
+                d = temp2
+            }
             attempts++;
+            secondImage = $(secondCard).find('img').attr('src').slice(15,30);
             $('#attempts').text(attempts);
             console.log('second card is', secondCard);
 
             //DETERMINE MATCH, UPDATE MATCH, ACCURACY RATING
 
-            if($(firstCard).find('.front > img ').attr('src') === $(secondCard).find('.front > img').attr('src')){
+            //if($(firstCard).find('.front > img ').attr('src') === $(secondCard).find('.front > img').attr('src')){
+            if (firstImage === secondImage) {
                 matchCount++;
                 $('#matches').text(matchCount);
                 firstCard = null;
