@@ -13,47 +13,40 @@
 .background {
     opacity: .7;
     max-width: 100%;
+    z-index: -1;
 }
-#stats{
-    width:20%;
-    height:100%;
-    float:left;
+.logo {
+    height: 15vh;
 }
-#scoretower {
-    padding-top: 11vh;
+.stats {
     text-align: center;
-    font-size: 20px;
 }
-.heading {
-    font-weight: bolder;
+.stats.matches, .stats.accuracy, .stats.attempts, .stats.wins {
+    height: 15vh;
 }
-.menus {
-    height:5%;
-    background-color: black;
+.reset {
+    text-align: center;
+    height: 15vh;
 }
-#playingfield {
-    padding-top: 5vh;
-    height:100vh;
-    width: 100vw;
+button {
+    margin-top: 10px;
 }
 .card {
-    display: inline-block;
-    height: 15vh;
-    width: 12vw;
-    border: solid 1px black;
-    margin: 10px;
-    position: relative;
-    overflow: hidden;
-    background-color: black;
+    height: 26vh;
 }
-img {
-    position: absolute;
-    height: 100%;
+.front {
     max-width: 100%;
 }
-.counter {
-    padding-bottom: 0px;
+.timer {
+    height: 7vh;
+    width: 100%;
 }
-.background {
-    z-index: -1;
+#timeleft {
+    width: 100%;
+    height: 30px;
+    background-color: green;
+}
+.back {
+    position: absolute;
+    top: 0;
 }

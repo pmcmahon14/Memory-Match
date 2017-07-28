@@ -4,52 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Charlotte</title>
+    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="Charlotte.js"></script>
-    <style>
-        @media (max-width: 600px) {
-            .container-fluid {
-                display: none;
-            }
-        }
-        .logo {
-            height: 15vh;
-        }
-        .stats {
-            text-align: center;
-        }
-        .stats.matches, .stats.accuracy, .stats.attempts, .stats.wins {
-            height: 15vh;
-        }
-        .reset {
-            text-align: center;
-            height: 15vh;
-        }
-        button {
-            margin-top: 10px;
-        }
-        .card {
-            height: 26vh;
-        }
-        .front {
-            max-width: 100%;
-        }
-        .timer {
-            height: 7vh;
-            width: 100%;
-        }
-        #timeleft {
-            width: 1%;
-            height: 30px;
-            background-color: green;
-        }
-        .back {
-            position: absolute;
-            top: 0;
-        }
-    </style>
 </head>
 <body>
 <div class="container-fluid">
@@ -89,7 +48,6 @@
     </div>
     <div class="reset col-xs-2">
         <button type="button" class="btn btn-md btn-danger" onclick="reset()">Reset</button>
-        <button type="button" class="btn btn-md btn-success" onclick="timer()">Start</button>
     </div>
     <div class="timer col-xs-12">
         <div id="timeleft"></div>
