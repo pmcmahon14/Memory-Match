@@ -13,6 +13,7 @@ var size = 9;
 var pick;
 var timer = 50;
 var timeleft = $('#timeleft');
+//var cardArray = firebase.database();
 
 //LOAD SCREEN
 
@@ -20,8 +21,8 @@ $(document).ready(function(){
     $('.card').click(pickCard);
     //$('.resetCards').click(resetCards);
     pickDriver();
-    buildDaytona();
-    reset();
+    //buildDaytona();
+    //reset();
 });
 
 var cardArray = [
@@ -57,6 +58,14 @@ var cardArray = [
         car: 'Images/cars/jamie.png'},
     {driver: 'Images/drivers/jimmie.png',
         car: 'Images/cars/jimmie.png'},
+    {driver: 'Images/drivers/joey.png',
+        car: 'Images/cars/joey.png'},
+    {driver: 'Images/drivers/kasey.png',
+        car: 'Images/cars/kasey.png'},
+    {driver: 'Images/drivers/kevin.png',
+        car: 'Images/cars/kevin.png'},
+    {driver: 'Images/drivers/kurt.png',
+        car: 'Images/cars/kurt.png'},
     {driver: 'Images/drivers/kylebusch.png',
         car: 'Images/cars/kylebusch.png'},
     {driver: 'Images/drivers/kylelarson.png',
@@ -241,6 +250,73 @@ function reset() {
     $('.back').show();
     console.log('reset clicked');
     cards = [];
+    cardArray = [
+        {driver: 'Images/drivers/aj.png',
+            car: 'Images/cars/aj.png'},
+        {driver: 'Images/drivers/aric.png',
+            car: 'Images/cars/aric.png'},
+        {driver: 'Images/drivers/austin.png',
+            car: 'Images/cars/austin.png'},
+        {driver: 'Images/drivers/brad.png',
+            car: 'Images/cars/brad.png'},
+        {driver: 'Images/drivers/chase.png',
+            car: 'Images/cars/chase.png'},
+        {driver: 'Images/drivers/chris.png',
+            car: 'Images/cars/chris.png'},
+        {driver: 'Images/drivers/clint.png',
+            car: 'Images/cars/clint.png'},
+        {driver: 'Images/drivers/cole.png',
+            car: 'Images/cars/cole.png'},
+        {driver: 'Images/drivers/dale.png',
+            car: 'Images/cars/dale.png'},
+        {driver: 'Images/drivers/danica.png',
+            car: 'Images/cars/danica.png'},
+        {driver: 'Images/drivers/daniel.png',
+            car: 'Images/cars/daniel.png'},
+        {driver: 'Images/drivers/david.png',
+            car: 'Images/cars/david.png'},
+        {driver: 'Images/drivers/denny.png',
+            car: 'Images/cars/denny.png'},
+        {driver: 'Images/drivers/erik.png',
+            car: 'Images/cars/erik.png'},
+        {driver: 'Images/drivers/jamie.png',
+            car: 'Images/cars/jamie.png'},
+        {driver: 'Images/drivers/jimmie.png',
+            car: 'Images/cars/jimmie.png'},
+        {driver: 'Images/drivers/joey.png',
+            car: 'Images/cars/joey.png'},
+        {driver: 'Images/drivers/kasey.png',
+            car: 'Images/cars/kasey.png'},
+        {driver: 'Images/drivers/kevin.png',
+            car: 'Images/cars/kevin.png'},
+        {driver: 'Images/drivers/kurt.png',
+            car: 'Images/cars/kurt.png'},
+        {driver: 'Images/drivers/kylebusch.png',
+            car: 'Images/cars/kylebusch.png'},
+        {driver: 'Images/drivers/kylelarson.png',
+            car: 'Images/cars/kylelarson.png'},
+        {driver: 'Images/drivers/landon.png',
+            car: 'Images/cars/landon.png'},
+        {driver: 'Images/drivers/martin.png',
+            car: 'Images/cars/martin.png'},
+        {driver: 'Images/drivers/matt.png',
+            car: 'Images/cars/matt.png'},
+        {driver: 'Images/drivers/michael.png',
+            car: 'Images/cars/michael.png'},
+        {driver: 'Images/drivers/paul.png',
+            car: 'Images/cars/paul.png'},
+        {driver: 'Images/drivers/ricky.png',
+            car: 'Images/cars/ricky.png'},
+        {driver: 'Images/drivers/ryannewman.png',
+            car: 'Images/cars/ryannewman.png'},
+        {driver: 'Images/drivers/ryanblaney.png',
+            car: 'Images/cars/ryanblaney.png'},
+        {driver: 'Images/drivers/trevor.png',
+            car: 'Images/cars/trevor.png'},
+        {driver: 'Images/drivers/ty.png',
+            car: 'Images/cars/ty.png'}
+    ];
+    console.log('This is the reset card array ' + cardArray);
     pickDriver();
 }
 
@@ -248,7 +324,6 @@ function reset() {
 
 function accuracyRating() {
     accuracy = Math.round((matchCount/attempts)*100) + '%';
-    console.log(accuracy);
     $('#accuracy').text(accuracy);
 }
 

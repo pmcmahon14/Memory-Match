@@ -21,8 +21,8 @@ $(document).ready(function(){
     $('.card').click(pickCard);
     //$('.resetCards').click(resetCards);
     pickDriver();
-    buildDaytona();
-    reset();
+    //buildDaytona();
+    //reset();
 });
 
 var cardArray = [
