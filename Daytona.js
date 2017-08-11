@@ -13,6 +13,7 @@ var size = 9;
 var pick;
 var timer = 50;
 var timeleft = $('#timeleft');
+var startOne = new Audio('Sounds/McConaugheyCommand.mp3');
 //var cardArray = firebase.database();
 
 //LOAD SCREEN
@@ -90,6 +91,7 @@ var cardArray = [
 ];
 
 function pickDriver() {
+    startOne.play();
     for (var i=0; i<size; i++) {
         if (cards.length < size*2) {
             pick = Math.floor(Math.random() * (cardArray.length-1));
@@ -126,6 +128,7 @@ function pickDriver() {
 //create gameboard
 
 function buildDaytona () {
+
     for (var x = 0; x < cards.length; x++) {
         $('#' + x).html("<img src='"+cards[x].driver+"' class='img-responsive img-thumbnail'>");
     }

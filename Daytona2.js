@@ -23,6 +23,8 @@ var temp;
 var temp2;
 var firstImage;
 var secondImage;
+var startTwo = new Audio('Sounds/MikeRoweCommand.mp3');
+var winner = new Audio('Sounds/Winner1.wav');
 
 //LOAD SCREEN
 
@@ -92,6 +94,7 @@ var cardArray = [
 
 function pickDriver() {
     for (var i=0; i<size; i++) {
+        startTwo.play();
         if (cards.length < size*2) {
             pick = Math.floor(Math.random() * (cardArray.length-1));
             cards.push(cardArray[pick].driver);
@@ -197,6 +200,7 @@ function pickCard(){
                     $('#wins').text(winCount);
                     $('#winner').show();
                     $('.reset').off('click');
+                    winner.play();
                 }
 
                 //NO MATCH, TURN CARDS BACK OVER, UPDATE ACCURACY RATING AT FUNCTION
