@@ -92,6 +92,7 @@ var cardArray = [
 
 function pickDriver() {
     startOne.play();
+    Start();
     for (var i=0; i<size; i++) {
         if (cards.length < size*2) {
             pick = Math.floor(Math.random() * (cardArray.length-1));
@@ -161,17 +162,17 @@ this.startGame = function () {
         //audio["walk"].src = "mp3/11408^LASER1.mp3";  //audio file source
         //audio["walk"].play(); //audio file play
     }
-};
+};*/
 
-function timer() {
+function Start() {
     startTime = Date.now();
-    timer = setTimeout(updateProgress,100);
+    timer = setTimeout(updateProgress,10);
 }
 
 function updateProgress() {
     if (timer == 0) {
         alert("Red Flag!");
-        resetTimer();
+        //resetTimer();
     } else {
         timer--;
         var percent = Math.floor(((Date.now() - startTime) / 50000) * 100);
@@ -179,7 +180,7 @@ function updateProgress() {
     }
 
     timer = setTimeout(updateProgress,100);
-}*/
+}
 
 function pickCard(){
     if($(this).find('.back').is(':visible') === true){
