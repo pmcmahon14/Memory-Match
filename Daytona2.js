@@ -28,10 +28,7 @@ var secondImage;
 
 $(document).ready(function(){
     $('.card').click(pickCard);
-    //$('.resetCards').click(resetCards);
     pickDriver();
-    buildDaytona();
-    reset();
 });
 
 var cardArray = [
@@ -237,6 +234,64 @@ function reset() {
     $('.back').show();
     console.log('reset clicked');
     cards = [];
+    cardArray = [
+        {driver: 'Images/drivers/aj.png',
+            car: 'Images/thecars/aj.png'},
+        {driver: 'Images/drivers/aric.png',
+            car: 'Images/thecars/aric.png'},
+        {driver: 'Images/drivers/austin.png',
+            car: 'Images/thecars/austin.png'},
+        {driver: 'Images/drivers/brad.png',
+            car: 'Images/thecars/brad.png'},
+        {driver: 'Images/drivers/chase.png',
+            car: 'Images/thecars/chase.png'},
+        {driver: 'Images/drivers/chris.png',
+            car: 'Images/thecars/chris.png'},
+        {driver: 'Images/drivers/clint.png',
+            car: 'Images/thecars/clint.png'},
+        {driver: 'Images/drivers/cole.png',
+            car: 'Images/thecars/cole.png'},
+        {driver: 'Images/drivers/dale.png',
+            car: 'Images/thecars/dale.png'},
+        {driver: 'Images/drivers/danica.png',
+            car: 'Images/thecars/danica.png'},
+        {driver: 'Images/drivers/daniel.png',
+            car: 'Images/thecars/daniel.png'},
+        {driver: 'Images/drivers/david.png',
+            car: 'Images/thecars/david.png'},
+        {driver: 'Images/drivers/denny.png',
+            car: 'Images/thecars/denny.png'},
+        {driver: 'Images/drivers/erik.png',
+            car: 'Images/thecars/erik.png'},
+        {driver: 'Images/drivers/jamie.png',
+            car: 'Images/thecars/jamie.png'},
+        {driver: 'Images/drivers/jimmie.png',
+            car: 'Images/thecars/jimmie.png'},
+        {driver: 'Images/drivers/kylebusch.png',
+            car: 'Images/thecars/kylebusch.png'},
+        {driver: 'Images/drivers/kylelarson.png',
+            car: 'Images/thecars/kylelarson.png'},
+        {driver: 'Images/drivers/landon.png',
+            car: 'Images/thecars/landon.png'},
+        {driver: 'Images/drivers/martin.png',
+            car: 'Images/thecars/martin.png'},
+        {driver: 'Images/drivers/matt.png',
+            car: 'Images/thecars/matt.png'},
+        {driver: 'Images/drivers/michael.png',
+            car: 'Images/thecars/michael.png'},
+        {driver: 'Images/drivers/paul.png',
+            car: 'Images/thecars/paul.png'},
+        {driver: 'Images/drivers/ricky.png',
+            car: 'Images/thecars/ricky.png'},
+        {driver: 'Images/drivers/ryannewman.png',
+            car: 'Images/thecars/ryannewman.png'},
+        {driver: 'Images/drivers/ryanblaney.png',
+            car: 'Images/thecars/ryanblaney.png'},
+        {driver: 'Images/drivers/trevor.png',
+            car: 'Images/thecars/trevor.png'},
+        {driver: 'Images/drivers/ty.png',
+            car: 'Images/thecars/ty.png'}
+    ];
     pickDriver();
 }
 

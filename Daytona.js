@@ -19,10 +19,7 @@ var timeleft = $('#timeleft');
 
 $(document).ready(function(){
     $('.card').click(pickCard);
-    //$('.resetCards').click(resetCards);
     pickDriver();
-    //buildDaytona();
-    //reset();
 });
 
 var cardArray = [
