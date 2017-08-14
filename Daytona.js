@@ -11,9 +11,10 @@ var attempts = 0;
 var cards = [];
 var size = 9;
 var pick;
-var timer = 50;
+var timer = null;
 var timeleft = $('#timeleft');
 var startOne = new Audio('Sounds/McConaugheyCommand.mp3');
+var startTime;
 //var cardArray = firebase.database();
 
 //LOAD SCREEN
@@ -91,8 +92,7 @@ var cardArray = [
 ];
 
 function pickDriver() {
-    startOne.play();
-    Start();
+    //startOne.play();
     for (var i=0; i<size; i++) {
         if (cards.length < size*2) {
             pick = Math.floor(Math.random() * (cardArray.length-1));
@@ -129,7 +129,7 @@ function pickDriver() {
 //create gameboard
 
 function buildDaytona () {
-
+    startTimer();
     for (var x = 0; x < cards.length; x++) {
         $('#' + x).html("<img src='"+cards[x].driver+"' class='img-responsive img-thumbnail'>");
     }
@@ -164,18 +164,24 @@ this.startGame = function () {
     }
 };*/
 
-function Start() {
+function startTimer() {
     startTime = Date.now();
-    timer = setTimeout(updateProgress,10);
+    timer = setTimeout(updateProgress,100);
 }
 
+/*function resetTimer() {
+    startTime = Date.now();
+    progressBar.css("width","100%");
+    timerCount = 0;
+}*/
+
 function updateProgress() {
-    if (timer == 0) {
+    if (timer === 0) {
         alert("Red Flag!");
         //resetTimer();
     } else {
         timer--;
-        var percent = Math.floor(((Date.now() - startTime) / 50000) * 100);
+        var percent = Math.floor(((Date.now() - startTime) / 5000) * 100);
         timeleft.css("width",percent+"%");
     }
 
@@ -318,6 +324,7 @@ function reset() {
             car: 'Images/cars/ty.png'}
     ];
     console.log('This is the reset card array ' + cardArray);
+    //resetTimer();
     pickDriver();
 }
 
@@ -335,5 +342,3 @@ function accuracyRating() {
 }*/
 
 //PICKS PAIRS AND SHUFFLES CARDS
-
-

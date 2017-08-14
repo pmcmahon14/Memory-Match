@@ -10,7 +10,12 @@
         width: 100vw;
     }
 }
+.container-fluid {
+    position: absolute;
+    top: 0;
+}
 .background {
+    /*background-img: ('Images/background/Jimmie_2048x1309.jpg');*/
     opacity: .7;
     max-width: 100%;
     z-index: -1;
