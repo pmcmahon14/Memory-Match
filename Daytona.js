@@ -12,7 +12,8 @@ var cards = [];
 var size = 9;
 var pick;
 var timer = null;
-var timeleft = $('#timeleft');
+var timerCount = 0;
+var progressbar = $('.progress-bar');
 var startOne = new Audio('Sounds/McConaugheyCommand.mp3');
 var startTime;
 //var cardArray = firebase.database();
@@ -22,6 +23,9 @@ var startTime;
 $(document).ready(function(){
     $('.card').click(pickCard);
     pickDriver();
+    $('.start').click(function() {
+        $(this).startTimer();
+    });
 });
 
 var cardArray = [
@@ -92,7 +96,7 @@ var cardArray = [
 ];
 
 function pickDriver() {
-    //startOne.play();
+    startOne.play();
     for (var i=0; i<size; i++) {
         if (cards.length < size*2) {
             pick = Math.floor(Math.random() * (cardArray.length-1));
@@ -128,8 +132,10 @@ function pickDriver() {
 
 //create gameboard
 
+
+
 function buildDaytona () {
-    startTimer();
+    //startTimer();
     for (var x = 0; x < cards.length; x++) {
         $('#' + x).html("<img src='"+cards[x].driver+"' class='img-responsive img-thumbnail'>");
     }
@@ -138,7 +144,7 @@ function buildDaytona () {
 //READS VALUES OF BOTH CARDS
 
 /*function move() {
-    var elem = document.getElementById("timeleft");
+    var elem = document.getElementById("progress");
     var width = 1;
     var id = setInterval(frame, 500);
     function frame() {
@@ -169,20 +175,20 @@ function startTimer() {
     timer = setTimeout(updateProgress,100);
 }
 
-/*function resetTimer() {
+function resetTimer() {
     startTime = Date.now();
-    progressBar.css("width","100%");
+    progressbar.css("width","0%");
     timerCount = 0;
-}*/
+}
 
 function updateProgress() {
-    if (timer === 0) {
-        alert("Red Flag!");
-        //resetTimer();
+    if (timerCount == 50) {
+        //alert("Red Flag!");
+        resetTimer();
     } else {
-        timer--;
+        timerCount++;
         var percent = Math.floor(((Date.now() - startTime) / 5000) * 100);
-        timeleft.css("width",percent+"%");
+        progressbar.css("width",percent+"%");
     }
 
     timer = setTimeout(updateProgress,100);
