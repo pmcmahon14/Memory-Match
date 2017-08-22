@@ -17,7 +17,7 @@ var startOne = new Audio('Sounds/McConaugheyCommand.mp3');
 var startTime;
 var dnf = 0;
 var board = null;
-var level = null;
+var layout = null;
 //var cardArray = firebase.database();
 
 //LOAD SCREEN
@@ -90,12 +90,12 @@ var cardArray = [
         car: 'Images/thecars/ty.png'}
 ];
 
-$("#boardlevel").click(function() {
-    level = $('#boardlevel').val($(this).text());
+function pickBoard() {
+    layout = document.getElementById('boardlevel').val();
     //level = $('#boardlevel').val();
     //console.log($('#boardsize').html(this.innerHTML));
-    console.log(level);
-});
+    console.log(layout);
+}
 
 //PICKS CARDS FROM ARRAY AND SHUFFLES CARDS
 

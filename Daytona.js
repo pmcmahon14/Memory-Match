@@ -88,6 +88,8 @@ var cardArray = [
         car: 'Images/thecars/ty.png'}
 ];
 
+
+
 //PICKS CARDS FROM ARRAY AND SHUFFLES CARDS
 
 function pickDriver() {
@@ -172,7 +174,8 @@ function pickCard(){
                     $('#wins').text(winCount);
                     $('#winner').show();
                     $('.reset').off('click');
-                    }
+                    //alert("You win!");
+                }
 
                     //NO MATCH, TURN CARDS BACK OVER, UPDATE ACCURACY RATING AT FUNCTION
 
