@@ -30,6 +30,7 @@ var winner = new Audio('Sounds/Winner1.wav');
 
 $(document).ready(function(){
     $('.card').click(pickCard);
+    startTwo.play();
     pickDriver();
 });
 
@@ -94,14 +95,13 @@ var cardArray = [
 
 function pickDriver() {
     for (var i=0; i<size; i++) {
-        startTwo.play();
         if (cards.length < size*2) {
             pick = Math.floor(Math.random() * (cardArray.length-1));
             cards.push(cardArray[pick].driver);
             cards.push(cardArray[pick].car);
             cardArray.splice(pick, 1);
         }
-    }console.log(cards);
+    }
 
     function shuffle(cards) {
         var currentIndex = cards.length, temporaryValue, randomIndex;

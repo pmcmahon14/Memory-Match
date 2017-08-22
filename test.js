@@ -16,18 +16,20 @@ var timerCount = 0;
 var startOne = new Audio('Sounds/McConaugheyCommand.mp3');
 var startTime;
 var dnf = 0;
+var board = null;
+var level = null;
 //var cardArray = firebase.database();
 
 //LOAD SCREEN
 
 $(document).ready(function(){
     $('.card').click(pickCard);
-    startOne.play();
+    //startOne.play();
     pickDriver();
-
-    //startTimer();
+    $('.start').click(function() {
+        $(this).startTimer();
     });
-
+});
 
 var cardArray = [
     {driver: 'Images/drivers/aj.png',
@@ -88,6 +90,13 @@ var cardArray = [
         car: 'Images/thecars/ty.png'}
 ];
 
+$("#boardlevel").click(function() {
+    level = $('#boardlevel').val($(this).text());
+    //level = $('#boardlevel').val();
+    //console.log($('#boardsize').html(this.innerHTML));
+    console.log(level);
+});
+
 //PICKS CARDS FROM ARRAY AND SHUFFLES CARDS
 
 function pickDriver() {
@@ -121,24 +130,43 @@ function pickDriver() {
 // Used like so
     cards = shuffle(cards);
     console.log(cards);
-    buildDaytona();
+    buildBoard();
 }
 
 //CREAT GAMEBOARD
 
-function buildDaytona () {
-
+function buildBoard () {
+    //startTimer();
     for (var x = 0; x < cards.length; x++) {
         $('#' + x).html("<img src='"+cards[x].driver+"' class='img-responsive img-thumbnail'>");
     }
-}//startTimer();
+}
 
 //TIMER
 
-/*function startTimer() {
-    //startTime = Date.now();
-    setTimeout(function(){ alert("Hello"); }, 50000);
-}*/
+function startTimer() {
+    startTime = Date.now();
+    timer = setInterval(updateProgress,100);
+}
+
+function resetTimer() {
+    startTime = Date.now();
+    timerCount = 0;
+}
+
+function updateProgress() {
+    if (timerCount == 50) {
+        //alert("Red Flag!");
+        //resetTimer();
+        dnf++;
+    } else {
+        timerCount++;
+        var percent = Math.floor(((Date.now() - startTime) / 5000) * 100);
+        progressbar.css("width",percent+"%");
+    }
+
+    timer = setTimeout(updateProgress,100);
+}
 
 function pickCard(){
     if($(this).find('.back').is(':visible') === true){
@@ -148,7 +176,7 @@ function pickCard(){
         if(firstCard === null){
             firstCard = this;
             console.log('first card is', firstCard);
-            }else{
+        }else{
             secondCard = this;
             attempts++;
             $('#attempts').text(attempts);
@@ -167,16 +195,16 @@ function pickCard(){
                 //CHECKS FOR GAME WIN, UPDATE WIN COUNT
 
                 if(matchCount < totalMatch){
-                    }else{
+                }else{
                     winCount++;
                     $('#wins').text(winCount);
                     $('#winner').show();
                     $('.reset').off('click');
-                    }
+                }
 
-                    //NO MATCH, TURN CARDS BACK OVER, UPDATE ACCURACY RATING AT FUNCTION
+                //NO MATCH, TURN CARDS BACK OVER, UPDATE ACCURACY RATING AT FUNCTION
 
-                    }else{
+            }else{
                 $('.card').off('click');
                 setTimeout(function(){
                     $(firstCard).find('.back').show();
@@ -184,13 +212,13 @@ function pickCard(){
                     firstCard = null;
                     secondCard = null;
                     $('.card').click(pickCard);
-                    }, 1000);
+                }, 1000);
                 accuracyRating();
 
             }
         }
 
-    //BLOCKS CARD ALREADY FACE UP
+        //BLOCKS CARD ALREADY FACE UP
 
     }else{
         console.log('already clicked', this);
