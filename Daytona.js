@@ -28,6 +28,7 @@ $(document).ready(function(){
     //startTimer();
     });
 
+//CARD ARRAY
 
 var cardArray = [
     {driver: 'Images/drivers/aj.png',
@@ -102,6 +103,8 @@ function pickDriver() {
         }
     }
 
+    //SHUFFLE FUNCTION
+
     function shuffle(cards) {
         var currentIndex = cards.length, temporaryValue, randomIndex;
 
@@ -126,7 +129,7 @@ function pickDriver() {
     buildDaytona();
 }
 
-//CREAT GAMEBOARD
+//CREATE GAMEBOARD
 
 function buildDaytona () {
 
@@ -141,6 +144,8 @@ function buildDaytona () {
     //startTime = Date.now();
     setTimeout(function(){ alert("Hello"); }, 50000);
 }*/
+
+//DETERMINES IF A CARD HAS NIT BEEN PICKED AND THEN IF A MATCH
 
 function pickCard(){
     if($(this).find('.back').is(':visible') === true){
