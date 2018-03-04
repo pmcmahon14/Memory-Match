@@ -96,7 +96,7 @@ var cardArray = [
 function pickDriver() {
     for (var i=0; i<size; i++) {
         if (cards.length < size*2) {
-            pick = Math.floor(Math.random() * (cardArray.length-1));
+            pick = Math.floor(Math.random() * (cardArray.length));
             cards.push(cardArray[pick]);
             cards.push(cardArray[pick]);
             cardArray.splice(pick, 1);
