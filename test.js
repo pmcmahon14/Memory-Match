@@ -16,20 +16,19 @@ var timerCount = 0;
 var startOne = new Audio('Sounds/McConaugheyCommand.mp3');
 var startTime;
 var dnf = 0;
-var board = null;
-var layout = null;
 //var cardArray = firebase.database();
 
 //LOAD SCREEN
 
 $(document).ready(function(){
     $('.card').click(pickCard);
-    //startOne.play();
+    startOne.play();
     pickDriver();
-    $('.start').click(function() {
-        $(this).startTimer();
-    });
+
+    //startTimer();
 });
+
+//CARD ARRAY
 
 var cardArray = [
     {driver: 'Images/drivers/aj.png',
@@ -90,14 +89,11 @@ var cardArray = [
         car: 'Images/thecars/ty.png'}
 ];
 
-function pickBoard() {
-    layout = document.getElementById('boardlevel').val();
-    //level = $('#boardlevel').val();
-    //console.log($('#boardsize').html(this.innerHTML));
-    console.log(layout);
-}
+
 
 //PICKS CARDS FROM ARRAY AND SHUFFLES CARDS
+
+var size = document.getElementById('boardsize');
 
 function pickDriver() {
     for (var i=0; i<size; i++) {
@@ -108,6 +104,8 @@ function pickDriver() {
             cardArray.splice(pick, 1);
         }
     }
+
+    //SHUFFLE FUNCTION
 
     function shuffle(cards) {
         var currentIndex = cards.length, temporaryValue, randomIndex;
@@ -130,43 +128,26 @@ function pickDriver() {
 // Used like so
     cards = shuffle(cards);
     console.log(cards);
-    buildBoard();
+    buildDaytona();
 }
 
-//CREAT GAMEBOARD
+//CREATE GAMEBOARD
 
-function buildBoard () {
-    //startTimer();
+function buildDaytona () {
+
     for (var x = 0; x < cards.length; x++) {
         $('#' + x).html("<img src='"+cards[x].driver+"' class='img-responsive img-thumbnail'>");
     }
-}
+}//startTimer();
 
 //TIMER
 
-function startTimer() {
-    startTime = Date.now();
-    timer = setInterval(updateProgress,100);
-}
+/*function startTimer() {
+    //startTime = Date.now();
+    setTimeout(function(){ alert("Hello"); }, 50000);
+}*/
 
-function resetTimer() {
-    startTime = Date.now();
-    timerCount = 0;
-}
-
-function updateProgress() {
-    if (timerCount === 50) {
-        //alert("Red Flag!");
-        //resetTimer();
-        dnf++;
-    } else {
-        timerCount++;
-        var percent = Math.floor(((Date.now() - startTime) / 5000) * 100);
-        progressbar.css("width",percent+"%");
-    }
-
-    timer = setTimeout(updateProgress,100);
-}
+//DETERMINES IF A CARD HAS NIT BEEN PICKED AND THEN IF A MATCH
 
 function pickCard(){
     if($(this).find('.back').is(':visible') === true){
@@ -200,6 +181,7 @@ function pickCard(){
                     $('#wins').text(winCount);
                     $('#winner').show();
                     $('.reset').off('click');
+                    //alert("You win!");
                 }
 
                 //NO MATCH, TURN CARDS BACK OVER, UPDATE ACCURACY RATING AT FUNCTION
