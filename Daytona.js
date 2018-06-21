@@ -145,7 +145,7 @@ function buildDaytona () {
     setTimeout(function(){ alert("Hello"); }, 50000);
 }*/
 
-//DETERMINES IF A CARD HAS NIT BEEN PICKED AND THEN IF A MATCH
+//DETERMINES IF A CARD HAS NOT BEEN PICKED AND THEN IF A MATCH
 
 function pickCard(){
     if($(this).find('.back').is(':visible') === true){
@@ -206,6 +206,23 @@ function pickCard(){
 }
 
 //RESETS STATS
+
+/*
+<script>
+function clickCounter() {
+    if(typeof(Storage) !== "undefined") {
+        if (localStorage.clickcount) {
+            localStorage.clickcount = Number(localStorage.clickcount)+1;
+        } else {
+            localStorage.clickcount = 1;
+        }
+        document.getElementById("result").innerHTML = "You have clicked the button " + localStorage.clickcount + " time(s).";
+    } else {
+        document.getElementById("result").innerHTML = "Sorry, your browser does not support web storage...";
+    }
+}
+</script>
+ */
 
 function reset() {
     matchCount = 0;
