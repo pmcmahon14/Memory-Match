@@ -22,7 +22,7 @@ var dnf = 0;
 
 $(document).ready(function(){
     $('.card').click(pickCard);
-    startOne.play();
+    //startOne.play();
     pickDriver();
 
     //startTimer();
@@ -158,6 +158,7 @@ function pickCard(){
             }else{
             secondCard = this;
             attempts++;
+
             $('#attempts').text(attempts);
             console.log('second card is', secondCard);
 
