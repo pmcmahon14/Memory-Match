@@ -15,7 +15,7 @@ function timer(seconds) {
     //set values to 1 instead of 1000 to count milliseconds
 
     countdown = setInterval(() => {
-        const secondsLeft = Math.round((then - Date.now()) / 1);
+        const secondsLeft = Math.round((then - Date.now()) / 10);
         // check if we should stop it!
         if(secondsLeft < 0) {
             clearInterval(countdown);
@@ -23,15 +23,15 @@ function timer(seconds) {
         }
         // display it
         displayTimeLeft(secondsLeft);
-    }, 1);
+    }, 10);
 }
 
 //set values to 60000 to compensate for above execution every millisecond
 
 function displayTimeLeft(seconds) {
-    const minutes = Math.floor(seconds / 60000);
-    const remainderSeconds = seconds % 60000;
-    const display = `${minutes}:${remainderSeconds < 10 ? '0' : '' }${remainderSeconds/1000}`;
+    const minutes = Math.floor(seconds / 6000);
+    const remainderSeconds = seconds % 6000;
+    const display = `${minutes}:${remainderSeconds < 1000 ? '0' : '' }${remainderSeconds}`;
     document.title = display;
     timerDisplay.textContent = display;
 }
