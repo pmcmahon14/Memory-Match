@@ -2,12 +2,84 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Flexbox Experiment</title>
 </head>
 <style>
 
+body {
+    height: 100%;
+}
+
+.flex-container {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.stats {
+    flex: 1;
+}
+
+.timer {
+    background-color: lightblue;
+    flex: 1;
+}
+
+.row1 {
+    background-color: lightblue;
+    flex: 2;
+}
+
+.row2 {
+    background-color: lightgreen;
+    flex: 3;
+}
+
+.row3 {
+    background-color: red;
+    flex: 3;
+}
+
+.gamebar {
+    background-color: #f1f1f1;
+    padding: 20px;
+    max-width: 16%;
+}
 </style>
 <body>
-
+<div class="container">
+    <div class="flex-container stats">
+        <button data-key="menu">Level</button>
+        <div class="matches gamebar">
+            <p class="stats">Matches</p>
+            <p class="stats" id="matches">0</p>
+        </div>
+        <div class="gamebar">
+            <p class="stats">Attempts</p>
+            <p class="stats" id="attempts">0</p>
+        </div>
+        <div class="gamebar">
+            <p class="stats">Accuracy</p>
+            <p class="stats" id="accuracy">0</p>
+        </div>
+        <div class="gamebar">
+            <p class="stats">Wins</p>
+            <p class="stats" id="wins">0</p>
+        </div>
+        <button type="button" class="gamebar">Reset</button>
+    </div>
+    <div class="timer">
+        Timer
+    </div>
+    <div class="row1">
+        row1
+    </div>
+    <div class="row2">
+        row2
+    </div>
+    <div class="row3">
+        row3
+    </div>
+</div>
 </body>
 </html>
