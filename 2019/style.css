@@ -2,6 +2,11 @@
     height: 10%;
 }
 
+.front {
+    position: absolute;
+    left: 0;
+}
+
 .back {
     position: absolute;
     left: 0;
